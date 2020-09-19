@@ -1,5 +1,8 @@
 # Brainflash App
 
+![Lint Check](https://github.com/Miczeq22/brainflash-app/workflows/Lint%20Check/badge.svg)
+![Production Build](https://github.com/Miczeq22/brainflash-app/workflows/Production%20Build/badge.svg)
+
 ---
 
 Client for Brainflash application, which is a flashcard portal.
