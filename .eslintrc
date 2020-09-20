@@ -9,7 +9,7 @@
   },
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": ["*.tsx", "*.ts"],
       "rules": {
         "import/prefer-default-export": "off",
         "import/order": "off",
