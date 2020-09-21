@@ -5,7 +5,8 @@
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "overrides": [
     {
@@ -21,7 +22,10 @@
         "no-restricted-syntax": "off",
         "class-methods-use-this": "off",
         "import/no-cycle": "off",
-        "@typescript-eslint/indent": "off"
+        "@typescript-eslint/indent": "off",
+        "react/require-default-props": "off",
+        "react/jsx-props-no-spreading": "off",
+        "no-confusing-arrow": "off"
       }
     }
   ]
