@@ -1,3 +1,4 @@
 serviceWorker.ts
 *.less
 *.stories.tsx
+*.svg

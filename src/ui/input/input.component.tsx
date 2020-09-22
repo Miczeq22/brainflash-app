@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Input as AntInput } from 'antd';
 
-interface InputProps extends Partial<AntInput> {
+interface InputProps extends Omit<React.HTMLProps<HTMLInputElement>, 'prefix'> {
   touched?: boolean;
   error?: string;
+  prefix?: React.ReactNode;
 }
 
 const ErrorField = styled.p`
@@ -33,7 +34,7 @@ export const Input = ({ touched, error, ...inputProps }: InputProps) => {
 
   return (
     <InputContainer displayError={shouldDisplayError as boolean}>
-      <AntInput {...inputProps} />
+      <AntInput {...(inputProps as Partial<AntInput>)} />
       {shouldDisplayError && <ErrorField>{error}</ErrorField>}
     </InputContainer>
   );
