@@ -1,0 +1,30 @@
+import styled from 'styled-components';
+
+export const LoginPageContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  @media screen and (max-width: ${({ theme }) => theme.deviceBreakpoint.mobile}) {
+    background-color: ${({ theme }) => theme.color.white};
+  }
+
+  & > .logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+
+    @media screen and (max-width: ${({ theme }) => theme.deviceBreakpoint.mobile}) {
+      top: 10px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  & > form {
+    margin-top: 50px;
+  }
+`;
