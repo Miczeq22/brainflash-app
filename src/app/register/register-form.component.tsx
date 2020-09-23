@@ -1,3 +1,4 @@
+import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import { FormikField } from '@ui/formik-field/formik-field.component';
 import { Button, Checkbox, Input } from 'antd';
 import { useFormik } from 'formik';
@@ -63,19 +64,29 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
       </RegisterDescription>
       <InputsContainer>
         <FormikField touched={formik.touched.username} error={formik.errors.username}>
-          <Input placeholder="Enter your username..." {...formik.getFieldProps('username')} />
+          <Input
+            placeholder="Enter your username..."
+            prefix={<UserOutlined />}
+            {...formik.getFieldProps('username')}
+          />
         </FormikField>
         <FormikField touched={formik.touched.email} error={formik.errors.email}>
-          <Input placeholder="Enter your address email..." {...formik.getFieldProps('email')} />
+          <Input
+            prefix={<MailOutlined />}
+            placeholder="Enter your address email..."
+            {...formik.getFieldProps('email')}
+          />
         </FormikField>
         <FormikField touched={formik.touched.password} error={formik.errors.password}>
           <Input.Password
+            prefix={<LockOutlined />}
             placeholder="Enter your password..."
             {...formik.getFieldProps('password')}
           />
         </FormikField>
         <FormikField touched={formik.touched.confirmPassword} error={formik.errors.confirmPassword}>
           <Input.Password
+            prefix={<LockOutlined />}
             placeholder="Confirm password..."
             {...formik.getFieldProps('confirmPassword')}
           />
