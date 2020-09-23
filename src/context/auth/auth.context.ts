@@ -9,6 +9,8 @@ export interface AuthStateApi {
 export const initialAuthState: AuthState = {
   accessToken: '',
   refreshToken: '',
+  isAuthorized: false,
+  isRegisteredSuccessfully: false,
 };
 
 export const AuthContext = React.createContext<AuthState | AuthStateApi>(initialAuthState);

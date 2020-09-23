@@ -9,11 +9,11 @@ export const StyledForm = styled.form`
   align-items: center;
 `;
 
-export const LoginHeading = styled.h2`
+export const RegisterHeading = styled.h2`
   font-size: 40px;
   font-weight: 700;
-  text-align: center;
   color: ${({ theme }) => theme.color.fontPrimary};
+  text-align: center;
 
   & > span {
     color: ${({ theme }) => theme.color.primary};
@@ -24,12 +24,12 @@ export const LoginHeading = styled.h2`
   }
 `;
 
-export const LoginDescription = styled.h3`
+export const RegisterDescription = styled.h3`
   font-size: 21px;
   text-align: center;
   max-width: 90%;
-  color: ${({ theme }) => theme.color.fontGray};
   margin: 10px 0 40px;
+  color: ${({ theme }) => theme.color.fontGray};
 
   @media screen and (max-width: ${({ theme }) => theme.deviceBreakpoint.mobile}) {
     font-size: 17px;
@@ -41,52 +41,31 @@ export const InputsContainer = styled.section`
 `;
 
 export const HelpersContainer = styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 40px;
+  margin-top: 10px;
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
-  & > a {
-    font-size: 14px;
+  & label {
+    margin: 5px 0 !important;
+    font-size: 15px;
   }
 `;
 
 export const ButtonsContainer = styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 20px;
   width: 90%;
-  margin-bottom: 20px;
 
-  & > a {
-    width: 48%;
-    & > button {
-      width: 100%;
-    }
-  }
-
-  & button {
-    padding: 20px 50px;
+  & > button {
+    width: 100%;
+    padding: 20px 0;
     line-height: 0;
     font-weight: 700;
-
-    width: 48%;
   }
+`;
 
-  @media screen and (max-width: ${({ theme }) => theme.deviceBreakpoint.mobile}) {
-    flex-direction: column;
-
-    & > a {
-      width: 100%;
-    }
-
-    & > button {
-      width: 100%;
-    }
-
-    & > button:first-child {
-      margin-bottom: 20px;
-    }
-  }
+export const AlreadyMemberContainer = styled.div`
+  margin: 15px 0;
+  text-align: center;
 `;

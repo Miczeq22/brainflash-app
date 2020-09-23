@@ -5,7 +5,8 @@ interface FieldContainerProps {
 }
 
 export const FieldContainer = styled.div<FieldContainerProps>`
-  & > .ant-input-affix-wrapper {
+  & > .ant-input-affix-wrapper,
+  & > .ant-input {
     padding: 12px;
 
     border: ${({ theme, displayError = false }) =>
