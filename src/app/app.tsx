@@ -1,8 +1,8 @@
-import { LoginPage } from '@pages/login/login.page';
+import { AppRoutes } from '@router/app-routing';
 import React from 'react';
 
 export const App = () => (
   <main>
-    <LoginPage />
+    <AppRoutes />
   </main>
 );

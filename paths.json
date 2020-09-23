@@ -11,7 +11,8 @@
       "@providers/*": ["./src/providers/*"],
       "@router/*": ["./src/router/*"],
       "@theme/*": ["./src/theme/*"],
-      "@ui/*": ["./src/ui/*"]
+      "@ui/*": ["./src/ui/*"],
+      "@api/*": ["./src/api/*"]
     }
   }
 }

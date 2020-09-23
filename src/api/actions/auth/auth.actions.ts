@@ -8,10 +8,34 @@ export interface LoginPayload {
 export interface LoginResponse {
   accessToken: string;
   refreshToken: string;
+  error?: string;
+}
+
+export interface RegisterPayload {
+  email: string;
+  password: string;
+  username: string;
+  error?: string;
+}
+
+export interface RegisterReposnse {
+  success: boolean;
 }
 
 export const loginAction = (payload: LoginPayload): ApiAction<LoginResponse> => ({
   method: 'POST',
   endpoint: `${process.env.REACT_APP_API_ENDPOINT}/user-access/login`,
   body: payload,
+  config: {
+    skipAuthorization: true,
+  },
+});
+
+export const registerAction = (payload: RegisterPayload): ApiAction<RegisterReposnse> => ({
+  method: 'POST',
+  endpoint: `${process.env.REACT_APP_API_ENDPOINT}/register`,
+  body: payload,
+  config: {
+    skipAuthorization: true,
+  },
 });

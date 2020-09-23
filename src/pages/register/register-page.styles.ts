@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LoginPageContainer = styled.div`
+export const RegisterPageContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -10,10 +10,6 @@ export const LoginPageContainer = styled.div`
 
   @media screen and (max-width: ${({ theme }) => theme.deviceBreakpoint.mobile}) {
     background-color: ${({ theme }) => theme.color.white};
-
-    & > form {
-      margin-top: 50px;
-    }
   }
 
   & > .logo {
@@ -24,7 +20,11 @@ export const LoginPageContainer = styled.div`
     @media screen and (max-width: ${({ theme }) => theme.deviceBreakpoint.mobile}) {
       top: 10px;
       left: 50%;
-      transform: translate(-50%);
+      transform: translateX(-50%);
     }
+  }
+
+  & > form {
+    margin-top: 200px;
   }
 `;

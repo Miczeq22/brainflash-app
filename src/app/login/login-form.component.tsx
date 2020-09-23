@@ -65,7 +65,9 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         <Button type="primary" htmlType="submit">
           Login
         </Button>
-        <Button htmlType="button">Create Account</Button>
+        <Link to="/register">
+          <Button htmlType="button">Create Account</Button>
+        </Link>
       </ButtonsContainer>
     </StyledForm>
   );
