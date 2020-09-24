@@ -13,6 +13,7 @@ export interface AuthAction {
 
 export const SET_TOKENS = 'auth/set-tokens';
 export const REGISTERED_SUCCESSFULLY = 'auth/registered-successfully';
+export const CLEAR_TOKENS = 'auth/clear-tokens';
 
 export const authReducer = (state: AuthState, action: AuthAction): AuthState => {
   switch (action.type) {
@@ -28,6 +29,14 @@ export const authReducer = (state: AuthState, action: AuthAction): AuthState => 
       return {
         ...state,
         isRegisteredSuccessfully: true,
+      };
+
+    case CLEAR_TOKENS:
+      return {
+        ...state,
+        isAuthorized: false,
+        accessToken: '',
+        refreshToken: '',
       };
 
     default:
