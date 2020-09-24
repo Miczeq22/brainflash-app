@@ -26,7 +26,7 @@ class AuthStorage {
     this.accessToken = accessToken;
 
     try {
-      if (typeof accessToken === 'string') {
+      if (typeof accessToken === 'string' && accessToken.trim()) {
         localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
       } else {
         localStorage.removeItem(ACCESS_TOKEN_KEY);
@@ -38,7 +38,7 @@ class AuthStorage {
     this.refreshToken = refreshToken;
 
     try {
-      if (typeof refreshToken === 'string') {
+      if (typeof refreshToken === 'string' && refreshToken.trim()) {
         localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
       } else {
         localStorage.removeItem(REFRESH_TOKEN_KEY);
