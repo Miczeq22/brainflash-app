@@ -8,6 +8,10 @@ interface ActionsContainerProps {
 export const StyledTopbar = styled.section`
   display: flex;
   justify-content: space-between;
+  max-height: 70px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.color.white};
+  padding: 15px;
 
   & > .ant-input-search:not(.ant-input-search-enter-button) {
     border-radius: 20px;
@@ -29,13 +33,13 @@ export const ActionsContainer = styled.div<ActionsContainerProps>`
     padding: 0 40px;
     line-height: 0;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 500;
     height: 50px;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 300px;
+    min-width: 250px;
 
     & > .anticon {
       width: 20px;
