@@ -31,7 +31,7 @@ export const theme: Theme = {
     fontPrimary: '#3D3B3C',
     fontGray: '#B5B3B0',
     white: '#FFFFFF',
-    gray: '#B5B3B0',
+    gray: '#F4F7FA',
   },
   deviceBreakpoint: {
     mobile: '768px',
