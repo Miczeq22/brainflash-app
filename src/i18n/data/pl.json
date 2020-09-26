@@ -1,0 +1,10 @@
+{
+  "login.welcome": "Witaj w",
+  "login.description": "Sprawiamy, że nauka poprzez fiszki jest na prawdę prosta dla wszystkich.",
+  "login.email": "Podaj adres email...",
+  "login.password": "Podaj hasło...",
+  "login.remember": "Zapamiętaj mnie",
+  "login.forgotPassword": "Zapomniałeś hasłą?",
+  "login.submit": "Zaloguj",
+  "login.register": "Stwórz nowe konto"
+}

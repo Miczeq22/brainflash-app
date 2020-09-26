@@ -1,4 +1,4 @@
-import { useAuthState } from '@hooks/use-auth-state/use-auth-state';
+import { useAuthState } from '@hooks/use-auth-state/use-auth-state.hook';
 import React from 'react';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
 

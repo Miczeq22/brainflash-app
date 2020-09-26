@@ -1,6 +1,6 @@
 import { BellOutlined, DownOutlined, LogoutOutlined } from '@ant-design/icons';
 import { logout } from '@context/auth/auth.action-creators';
-import { useAuthState } from '@hooks/use-auth-state/use-auth-state';
+import { useAuthState } from '@hooks/use-auth-state/use-auth-state.hook';
 import { Button, Dropdown, Input, Menu } from 'antd';
 import React from 'react';
 import { ActionsContainer, StyledTopbar } from './topbar.styles';

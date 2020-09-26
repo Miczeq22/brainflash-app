@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
-import { useAuthState } from './use-auth-state';
+import { useAuthState } from './use-auth-state.hook';
 import { AuthContext, initialAuthState } from '@context/auth/auth.context';
 
 describe('useAuthState hook', () => {

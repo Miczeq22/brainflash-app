@@ -14,12 +14,16 @@ import {
   StyledForm,
 } from './login-form.styles';
 import { FormikField } from '@ui/formik-field/formik-field.component';
+import { useLocale } from '@hooks/use-locale/use-locale.hook';
+import { AppMessages } from '@i18n/messages';
 
 interface LoginFormProps {
   onSubmit: (payload: LoginPayload) => Promise<void>;
 }
 
 export const LoginForm = ({ onSubmit }: LoginFormProps) => {
+  const { formatMessage } = useLocale();
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -36,37 +40,36 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
       <LoginHeading>
-        Welcome to <span>Brainflash</span>
+        {formatMessage({ id: AppMessages['login.welcome'] })}
+        <span> Brainflash</span>
       </LoginHeading>
-      <LoginDescription>
-        We make it easy for everyone to learn by using flash cards.
-      </LoginDescription>
+      <LoginDescription>{formatMessage({ id: AppMessages['login.description'] })}</LoginDescription>
       <InputsContainer>
         <FormikField touched={formik.touched.email} error={formik.errors.email}>
           <Input
-            placeholder="Enter email address..."
+            placeholder={formatMessage({ id: AppMessages['login.email'] })}
             prefix={<MailOutlined />}
             {...formik.getFieldProps('email')}
           />
         </FormikField>
         <FormikField touched={formik.touched.password} error={formik.errors.password}>
           <Input.Password
-            placeholder="Enter password..."
+            placeholder={formatMessage({ id: AppMessages['login.password'] })}
             prefix={<LockOutlined />}
             {...formik.getFieldProps('password')}
           />
         </FormikField>
       </InputsContainer>
       <HelpersContainer>
-        <Checkbox>Remember me</Checkbox>
-        <Link to="/">Forgot password?</Link>
+        <Checkbox>{formatMessage({ id: AppMessages['login.remember'] })}</Checkbox>
+        <Link to="/">{formatMessage({ id: AppMessages['login.forgotPassword'] })}</Link>
       </HelpersContainer>
       <ButtonsContainer>
         <Button type="primary" htmlType="submit">
-          Login
+          {formatMessage({ id: AppMessages['login.submit'] })}
         </Button>
         <Link to="/register">
-          <Button htmlType="button">Create Account</Button>
+          <Button htmlType="button">{formatMessage({ id: AppMessages['login.register'] })}</Button>
         </Link>
       </ButtonsContainer>
     </StyledForm>

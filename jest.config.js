@@ -22,5 +22,6 @@ module.exports = {
     '@providers/(.*)': '<rootDir>/src/providers/$1',
     '@theme/(.*)': '<rootDir>/src/theme/$1',
     '@ui/(.*)': '<rootDir>/src/ui/$1',
+    '@i18n/(.*)': '<rootDir>/src/i18n/$1',
   },
 };
