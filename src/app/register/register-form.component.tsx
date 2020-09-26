@@ -45,7 +45,7 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
       confirmPassword: Yup.string()
         .trim()
         // @ts-ignore
-        .test('equal', 'Passwords do not match', function (value: string) {
+        .test('equal', 'passwords do not match', function (value: string) {
           const passwordRef = Yup.ref('password');
 
           return value === this.resolve(passwordRef);
@@ -73,7 +73,7 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
         <FormikField touched={formik.touched.email} error={formik.errors.email}>
           <Input
             prefix={<MailOutlined />}
-            placeholder="Enter your address email..."
+            placeholder="Enter your email address..."
             {...formik.getFieldProps('email')}
           />
         </FormikField>

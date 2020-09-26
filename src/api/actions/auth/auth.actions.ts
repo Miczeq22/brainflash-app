@@ -15,11 +15,11 @@ export interface RegisterPayload {
   email: string;
   password: string;
   username: string;
-  error?: string;
 }
 
 export interface RegisterReposnse {
   success: boolean;
+  error?: string;
 }
 
 export const loginAction = (payload: LoginPayload): ApiAction<LoginResponse> => ({
