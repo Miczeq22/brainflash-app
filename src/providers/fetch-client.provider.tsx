@@ -1,4 +1,4 @@
-import { useAuthState } from '@hooks/use-auth-state';
+import { useAuthState } from '@hooks/use-auth-state/use-auth-state';
 import React from 'react';
 import { ClientContextProvider, createClient } from 'react-fetching-library';
 import { requestAuthInterceptor } from '@api/interceptors/request-auth.interceptor';

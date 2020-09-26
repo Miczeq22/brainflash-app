@@ -1,7 +1,8 @@
+import { Layout } from '@ui/layout/layout.component';
 import React from 'react';
 
 export const HomePage = () => (
-  <div>
-    <h2>Home Page</h2>
-  </div>
+  <Layout>
+    <h1>HELLO WORLD</h1>
+  </Layout>
 );

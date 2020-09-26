@@ -19,7 +19,7 @@ export const StyledTopbar = styled.section`
   }
 
   & > span {
-    max-width: 400px;
+    max-width: 300px;
   }
 `;
 
@@ -32,14 +32,13 @@ export const ActionsContainer = styled.div<ActionsContainerProps>`
   & > button {
     padding: 0 40px;
     line-height: 0;
-    font-size: 16px;
-    font-weight: 500;
-    height: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    height: 40px;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 250px;
 
     & > .anticon {
       width: 20px;
@@ -59,9 +58,9 @@ export const ActionsContainer = styled.div<ActionsContainerProps>`
 
   & > .anticon {
     cursor: pointer;
-    margin-right: 10px;
-    width: 40px;
-    height: 40px;
+    margin-right: 20px;
+    width: 35px;
+    height: 35px;
     position: relative;
 
     & svg {
@@ -77,8 +76,8 @@ export const ActionsContainer = styled.div<ActionsContainerProps>`
             : `content: '${notificationCount}'`
           : ''};
       background-color: ${({ theme }) => theme.color.primary};
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       position: absolute;
       z-index: 2;
       top: 0;
@@ -86,7 +85,7 @@ export const ActionsContainer = styled.div<ActionsContainerProps>`
       border-radius: 50%;
       color: ${({ theme }) => theme.color.white};
       font-size: 12px;
-      line-height: 22px;
+      line-height: 20px;
       font-weight: 700;
     }
   }

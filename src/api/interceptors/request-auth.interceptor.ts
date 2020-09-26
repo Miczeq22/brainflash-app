@@ -1,9 +1,9 @@
 import { RequestInterceptor } from 'react-fetching-library';
 import { ApiAction } from 'src/types';
 
-export const requestAuthInterceptor = (accessToken: string): RequestInterceptor => () => async (
-  action: ApiAction<unknown>,
-) => {
+export const requestAuthInterceptor = (
+  accessToken: string | null,
+): RequestInterceptor => () => async (action: ApiAction<unknown>) => {
   if (action.config?.skipAuthorization) {
     return action;
   }
