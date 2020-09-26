@@ -5,7 +5,7 @@ interface NavigationListItemProps {
 }
 
 export const StyledNav = styled.nav`
-  width: 375px;
+  width: 300px;
   height: 100vh;
   background-color: ${({ theme }) => theme.color.white};
   border-right: 1px solid ${({ theme }) => theme.color.gray};
@@ -19,18 +19,19 @@ export const StyledNav = styled.nav`
 export const ActionsContainer = styled.section``;
 
 export const ButtonContainer = styled.section`
-  margin: 30px 0;
+  margin: 40px 0;
 
   & > button {
-    padding: 0 30px;
+    width: 100%;
     height: 50px;
     border-radius: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     font-weight: 500;
 
     & > .anticon {
+      margin-left: 10px;
       width: 18px;
       height: 18px;
 

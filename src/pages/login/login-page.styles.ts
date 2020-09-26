@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LoginPageContainer = styled.div`
+export const LoginPageContainer = styled.main`
   width: 100%;
   height: 100vh;
   display: flex;

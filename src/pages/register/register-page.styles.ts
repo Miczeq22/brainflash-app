@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const RegisterPageContainer = styled.div`
+export const RegisterPageContainer = styled.main`
   width: 100%;
   height: 100vh;
   display: flex;
