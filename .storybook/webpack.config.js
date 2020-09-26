@@ -10,6 +10,7 @@ module.exports = ({ config }) => {
     '@api': path.resolve(__dirname, '..', 'src', 'api'),
     '@hooks': path.resolve(__dirname, '..', 'src', 'hooks'),
     '@context': path.resolve(__dirname, '..', 'src', 'context'),
+    '@i18n': path.resolve(__dirname, '..', 'src', 'i18n'),
   };
 
   return config;

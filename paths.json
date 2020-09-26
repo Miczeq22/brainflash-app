@@ -12,7 +12,8 @@
       "@router/*": ["./src/router/*"],
       "@theme/*": ["./src/theme/*"],
       "@ui/*": ["./src/ui/*"],
-      "@api/*": ["./src/api/*"]
+      "@api/*": ["./src/api/*"],
+      "@i18n/*": ["./src/i18n/*"]
     }
   }
 }

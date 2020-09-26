@@ -1,7 +1,7 @@
 import { registerAction } from '@api/actions/auth/auth.actions';
 import { RegisterForm, RegisterInput } from '@app/register/register-form.component';
 import { registerUser } from '@context/auth/auth.action-creators';
-import { useAuthState } from '@hooks/use-auth-state/use-auth-state';
+import { useAuthState } from '@hooks/use-auth-state/use-auth-state.hook';
 import { Logo } from '@ui/logo/logo.component';
 import React from 'react';
 import { useMutation } from 'react-fetching-library';

@@ -1,0 +1,10 @@
+{
+  "login.welcome": "Welcome to",
+  "login.description": "We make it easy for everyone to learn by using flash cards.",
+  "login.email": "Enter email address...",
+  "login.password": "Enter password...",
+  "login.remember": "Remember me",
+  "login.forgotPassword": "Forgot password?",
+  "login.submit": "Login",
+  "login.register": "Create Account"
+}
