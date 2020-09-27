@@ -47,6 +47,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
       <InputsContainer>
         <FormikField touched={formik.touched.email} error={formik.errors.email}>
           <Input
+            type="email"
             placeholder={formatMessage({ id: AppMessages['login.email'] })}
             prefix={<MailOutlined />}
             {...formik.getFieldProps('email')}

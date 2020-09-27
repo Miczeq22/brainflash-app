@@ -73,6 +73,7 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
         <FormikField touched={formik.touched.email} error={formik.errors.email}>
           <Input
             prefix={<MailOutlined />}
+            type="email"
             placeholder="Enter your email address..."
             {...formik.getFieldProps('email')}
           />

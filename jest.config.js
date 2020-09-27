@@ -10,6 +10,7 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.svg$': 'svg-jest',
   },
   moduleNameMapper: {
     '@api/(.*)': '<rootDir>/src/api/$1',
