@@ -7,6 +7,7 @@ import { useMutation } from 'react-fetching-library';
 import { loginAction } from 'src/api/actions/auth/auth.actions';
 import { LoginPageContainer } from './login-page.styles';
 import { message } from 'antd';
+import { useLocation } from 'react-router-dom';
 
 export interface LoginPayload {
   email: string;
@@ -14,6 +15,8 @@ export interface LoginPayload {
 }
 
 export const LoginPage = () => {
+  const location = useLocation();
+
   const {
     dispatch,
     state: { isRegisteredSuccessfully },
@@ -27,6 +30,10 @@ export const LoginPage = () => {
         message.success(
           'Account registered successfully. Please check your email and confirm account.',
         );
+      }
+
+      if (new URLSearchParams(location.search).get('verified')) {
+        message.success('Account verified successfully. Now you can log in.');
       }
     },
     // eslint-disable-next-line

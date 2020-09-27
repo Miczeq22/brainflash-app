@@ -3,6 +3,7 @@ import { RegisterForm, RegisterInput } from '@app/register/register-form.compone
 import { registerUser } from '@context/auth/auth.action-creators';
 import { useAuthState } from '@hooks/use-auth-state/use-auth-state.hook';
 import { Logo } from '@ui/logo/logo.component';
+import { message } from 'antd';
 import React from 'react';
 import { useMutation } from 'react-fetching-library';
 import { useHistory } from 'react-router-dom';
@@ -20,6 +21,10 @@ export const RegisterPage = () => {
     ...payload
   }: RegisterInput) => {
     const { error, payload: response } = await mutate(payload);
+
+    if (error) {
+      message.error(response?.error);
+    }
 
     if (!error && response?.success) {
       dispatch(registerUser());
