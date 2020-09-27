@@ -10,7 +10,8 @@ export type Color =
   | 'fontPrimary'
   | 'fontGray'
   | 'white'
-  | 'gray';
+  | 'gray'
+  | 'lightGray';
 
 export interface Theme {
   fontFamily: { [key in FontFamily]: string };
@@ -32,6 +33,7 @@ export const theme: Theme = {
     fontGray: '#B5B3B0',
     white: '#FFFFFF',
     gray: '#F4F7FA',
+    lightGray: '#F9FAFC',
   },
   deviceBreakpoint: {
     mobile: '768px',
