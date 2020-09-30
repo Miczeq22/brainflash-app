@@ -53,7 +53,7 @@ export const Ratings = ({ numberOfRatings, ratings }: RatingsProps) => (
   <StyledContainer className="ratings">
     <StyledList>
       {[...Array(5)].map((_, index) => (
-        <StyledListItem key={`star-${index}`} active={index < ratings}>
+        <StyledListItem key={`star-${index}`} active={index <= Math.round(ratings - 1)}>
           <StarIcon />
         </StyledListItem>
       ))}
