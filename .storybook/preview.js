@@ -9,7 +9,13 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <AppProvider>
-      <Story />
+      <div
+        style={{
+          fontFamily: 'Montserrat',
+        }}
+      >
+        <Story />
+      </div>
     </AppProvider>
   ),
 ];

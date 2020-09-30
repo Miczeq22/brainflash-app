@@ -11,6 +11,7 @@ module.exports = ({ config }) => {
     '@hooks': path.resolve(__dirname, '..', 'src', 'hooks'),
     '@context': path.resolve(__dirname, '..', 'src', 'context'),
     '@i18n': path.resolve(__dirname, '..', 'src', 'i18n'),
+    '@graphql': path.resolve(__dirname, '..', 'src', 'graphql'),
   };
 
   return config;

@@ -4,12 +4,18 @@ interface StyledListItemProps {
   active?: boolean;
 }
 
+interface DeckImageProps {
+  imgUrl?: string;
+}
+
 export const StyledListItem = styled.li<StyledListItemProps>`
   list-style: none;
   background-color: ${({ theme, active = false }) =>
-    active ? theme.color.gray : theme.color.white};
+    active ? theme.color.lightGray : theme.color.white};
+  border: ${({ theme, active = false }) =>
+    active ? `2px solid ${theme.color.white}` : `2px solid ${theme.color.gray}`};
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 20px;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -28,10 +34,6 @@ export const StyledButton = styled.button`
   outline: none;
 `;
 
-export const DeckImage = styled.img`
-  background-color: rgba(95, 129, 244, 0.3);
-`;
-
 export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,7 +41,10 @@ export const DescriptionContainer = styled.div`
   margin-left: 10px;
 `;
 
-export const DeckDefaultImage = styled.div`
+export const DeckImg = styled.div<DeckImageProps>`
+  ${({ imgUrl }) => imgUrl && `background-image: url('${imgUrl}');`};
+  background-position: center;
+  background-size: cover;
   background-color: rgba(95, 129, 244, 0.3);
   width: 60px;
   height: 60px;

@@ -1,8 +1,7 @@
 import { Ratings } from '@ui/ratings/ratings.component';
 import React from 'react';
 import {
-  DeckDefaultImage,
-  DeckImage,
+  DeckImg,
   DescriptionContainer,
   RatingsContainer,
   StyledButton,
@@ -34,7 +33,7 @@ export const DeckListItem = ({
   return (
     <StyledListItem active={active}>
       <StyledButton onClick={handleClick}>
-        {imgUrl ? <DeckImage alt="Deck cover" src={imgUrl} /> : <DeckDefaultImage />}
+        <DeckImg imgUrl={imgUrl} />
         <DescriptionContainer>
           <StyledTitle>{title}</StyledTitle>
           <RatingsContainer>
