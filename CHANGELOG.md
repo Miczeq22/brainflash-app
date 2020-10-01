@@ -1,13 +1,18 @@
-# 0.1.0 (2020-09-26)
+# 0.1.0 (2020-10-01)
 
 
 ### Features
 
-- Added locale feature ([e3d4ad8](https://github.com/Miczeq22/brainflash-app/commit/e3d4ad80f123516d3a2279ce73c4125fdf421fbb))
+- Added locale feature ([a4d998c](https://github.com/Miczeq22/brainflash-app/commit/a4d998c20b3fad2348b53b636652adc5e95f3f4d))
+- Deck List Component ([e88d6cd](https://github.com/Miczeq22/brainflash-app/commit/e88d6cdcdbffb18d95777fba4d3c2f6f9a27909b))
+- Deck list item component ([86759ae](https://github.com/Miczeq22/brainflash-app/commit/86759aebacc500f250cae836ec33c84634596d89))
+- Deck List Provider ([f7b37c9](https://github.com/Miczeq22/brainflash-app/commit/f7b37c9f5485d2c46d53caa31f7eb8ef95402e7b))
 - Input component ([e6206b7](https://github.com/Miczeq22/brainflash-app/commit/e6206b7bbbe5aa4ab41ee087cb81605dcbc468e8))
 - Layout component ([fe2befb](https://github.com/Miczeq22/brainflash-app/commit/fe2befbb33dd0c36a257c5d51dabde227dd4f0b3))
 - Login page ([eadf75e](https://github.com/Miczeq22/brainflash-app/commit/eadf75eebaf5572dc1554914c44d5021d5df8c8e))
 - Menu component ([5dfffc1](https://github.com/Miczeq22/brainflash-app/commit/5dfffc1648899f3a0d9d6694919dd6df6b96df58))
+- No deck selected component ([37ffb73](https://github.com/Miczeq22/brainflash-app/commit/37ffb73b45d1be09a761c65f9d8adc71fb2e5673))
+- Ratings component ([f1b89ef](https://github.com/Miczeq22/brainflash-app/commit/f1b89ef38a4696bc80384e230d51657d19b78537))
 - Register page ([6bb27ae](https://github.com/Miczeq22/brainflash-app/commit/6bb27ae069b1e15db8b073c92c4b7809df61f2dd))
 - Topbar component ([7e5c376](https://github.com/Miczeq22/brainflash-app/commit/7e5c3767550fe1478d82d0699041192a790e12fe))
 
