@@ -2,12 +2,12 @@ import { registerAction } from '@api/actions/auth/auth.actions';
 import { RegisterForm, RegisterInput } from '@app/register/register-form.component';
 import { registerUser } from '@context/auth/auth.action-creators';
 import { useAuthState } from '@hooks/use-auth-state/use-auth-state.hook';
-import { Logo } from '@ui/logo/logo.component';
+import { GuestTopbar } from '@ui/guest-topbar/guest-topbar.component';
 import { message } from 'antd';
 import React from 'react';
 import { useMutation } from 'react-fetching-library';
 import { useHistory } from 'react-router-dom';
-import { RegisterPageContainer } from './register-page.styles';
+import { RegisterPageContainer, FormContainer } from './register-page.styles';
 
 export const RegisterPage = () => {
   const history = useHistory();
@@ -35,8 +35,10 @@ export const RegisterPage = () => {
 
   return (
     <RegisterPageContainer>
-      <Logo />
-      <RegisterForm onSubmit={handleRegisterSubmit} />
+      <GuestTopbar />
+      <FormContainer>
+        <RegisterForm onSubmit={handleRegisterSubmit} />
+      </FormContainer>
     </RegisterPageContainer>
   );
 };

@@ -1,13 +1,13 @@
 import { LoginForm } from '@app/login/login-form.component';
 import { setTokens } from '@context/auth/auth.action-creators';
 import { useAuthState } from '@hooks/use-auth-state/use-auth-state.hook';
-import { Logo } from '@ui/logo/logo.component';
 import React from 'react';
 import { useMutation } from 'react-fetching-library';
 import { loginAction } from 'src/api/actions/auth/auth.actions';
-import { LoginPageContainer } from './login-page.styles';
+import { LoginPageContainer, FormContainer } from './login-page.styles';
 import { message } from 'antd';
 import { useLocation } from 'react-router-dom';
+import { GuestTopbar } from '@ui/guest-topbar/guest-topbar.component';
 
 export interface LoginPayload {
   email: string;
@@ -54,8 +54,10 @@ export const LoginPage = () => {
 
   return (
     <LoginPageContainer>
-      <Logo />
-      <LoginForm onSubmit={handleLoginSubmit} />
+      <GuestTopbar />
+      <FormContainer>
+        <LoginForm onSubmit={handleLoginSubmit} />
+      </FormContainer>
     </LoginPageContainer>
   );
 };
