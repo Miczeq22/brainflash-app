@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-export const LoginPageContainer = styled.main`
-  width: 100%;
-  height: 100vh;
+export const FormContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  height: 100%;
 
   @media screen and (max-width: ${({ theme }) => theme.deviceBreakpoint.mobile}) {
     background-color: ${({ theme }) => theme.color.white};
@@ -27,4 +26,11 @@ export const LoginPageContainer = styled.main`
       transform: translate(-50%);
     }
   }
+`;
+
+export const LoginPageContainer = styled.main`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;
