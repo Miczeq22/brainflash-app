@@ -56,9 +56,12 @@ export const ActionsContainer = styled.div<ActionsContainerProps>`
     }
   }
 
+  & > .language-select {
+    margin: 0 20px;
+  }
+
   & > .anticon {
     cursor: pointer;
-    margin-right: 20px;
     width: 35px;
     height: 35px;
     position: relative;

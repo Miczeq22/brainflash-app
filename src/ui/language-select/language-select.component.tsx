@@ -13,7 +13,11 @@ export const LanguageSelect = () => {
   };
 
   return (
-    <StyledRadioGroup onChange={handleRadioChange} defaultValue={locale}>
+    <StyledRadioGroup
+      onChange={handleRadioChange}
+      defaultValue={locale}
+      className="language-select"
+    >
       <Radio.Button value={AppLocale.en}>EN</Radio.Button>
       <Radio.Button value={AppLocale.pl}>PL</Radio.Button>
     </StyledRadioGroup>
