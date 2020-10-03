@@ -33,7 +33,7 @@ You need to have installed the following software:
 ### Bootstrap
 
 ```bash
-  git clone git@github.com:Miczeq22/zombies-app.git
+  git clone git@github.com:Miczeq22/brainflash-app.git
   cd brainflash-app
   npm i
   cp .env.dist .env
