@@ -37,25 +37,25 @@ describe('<DeckList /> Component', () => {
               id: '1',
               numberOfRatings: 9500,
               rating: 3.91,
-              title: 'Basics of Object oriented programming',
+              name: 'Basics of Object oriented programming',
             },
             {
               id: '2',
               numberOfRatings: 130,
               rating: 3.42,
-              title: 'JavaScript ES6',
+              name: 'JavaScript ES6',
             },
             {
               id: '3',
               numberOfRatings: 13220,
               rating: 4.44,
-              title: 'Security in IT',
+              name: 'Security in IT',
             },
             {
               id: '4',
               numberOfRatings: 13220,
               rating: 4.7,
-              title: 'Pragmatic Thinking',
+              name: 'Pragmatic Thinking',
             },
           ]}
         />

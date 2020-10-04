@@ -5,18 +5,13 @@ export const StyledList = styled.ul`
   padding: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  height: 100vh;
+  min-height: calc(100vh - 90px);
+  display: flex;
+  flex-wrap: wrap;
 
   & > li {
-    margin: 20px 0;
-  }
-
-  & > li:first-child {
-    margin-top: 0;
-  }
-
-  & > li:last-child {
-    margin-bottom: 0;
+    margin: 1%;
+    width: 31%;
   }
 `;
 
