@@ -1,48 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import styled from 'styled-components';
 import { ReactComponent as StarIcon } from '@assets/star.svg';
-
-interface StyledListItemProps {
-  active?: boolean;
-}
-
-const StyledContainer = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const StyledList = styled.ul`
-  list-style: none;
-  display: flex;
-
-  & > li:last-child {
-    margin-right: 0;
-  }
-`;
-
-const StyledListItem = styled.li<StyledListItemProps>`
-  margin-right: 10px;
-  max-width: 35px;
-  fill: ${({ active = false }) => (active ? '#FDCE30' : '#B5B3B0')};
-
-  & > svg {
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-const Rating = styled.span`
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0 10px;
-`;
-
-const NumberOfRatings = styled.span`
-  font-size: 26px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.color.fontGray};
-`;
+import {
+  NumberOfRatings,
+  Rating,
+  StyledContainer,
+  StyledList,
+  StyledListItem,
+} from './ratings.styles';
 
 interface RatingsProps {
   ratings: number;

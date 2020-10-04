@@ -21,6 +21,8 @@ export interface DeckData {
   createdAt: string;
   cardCount: number;
   cards: CardData[];
+  rating: number;
+  numberOfRatings: number;
 }
 
 export interface GetDecksData {
@@ -33,6 +35,8 @@ export const GET_DECKS_QUERY = gql`
       id
       name
       tags
+      rating
+      numberOfRatings
     }
   }
 `;
