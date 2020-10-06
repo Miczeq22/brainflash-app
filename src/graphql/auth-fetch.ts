@@ -11,7 +11,7 @@ const isUnauthorizedResponse = (json: any) =>
   json?.error === 'Unauthorized.' ||
   (json?.errors?.length && json?.errors[0]?.message === 'Unauthorized.');
 
-export const apolloFetch = async (uri: string, options: any): Promise<Response> => {
+export const authFetch = async (uri: string, options: any): Promise<Response> => {
   const accessToken = authStorage.getAccessToken();
 
   if (accessToken) {
@@ -23,11 +23,34 @@ export const apolloFetch = async (uri: string, options: any): Promise<Response> 
   const text = await result.text();
   const json = JSON.parse(text);
 
-  if (isUnauthorizedResponse(json)) {
+  if (!isUnauthorizedResponse(json)) {
+    return prepareResponse(text, json) as Response;
+  }
+
+  const refreshTokenResponse = await fetch(
+    `${process.env.REACT_APP_API_ENDPOINT}/user-access/refresh-token`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        refreshToken: authStorage.getRefreshToken(),
+      }),
+    },
+  );
+
+  const refreshTokenResponseJson = await refreshTokenResponse.json();
+
+  if (isUnauthorizedResponse(refreshTokenResponseJson)) {
     authStorage.setAccessToken(null);
     authStorage.setRefreshToken(null);
 
     return prepareResponse(text, json) as Response;
+  }
+
+  authStorage.setAccessToken(refreshTokenResponseJson.accessToken);
+
+  if (authStorage.getAccessToken()) {
+    options.headers.authorization = `Bearer ${authStorage.getAccessToken()}`;
   }
 
   return fetch(uri, options);
