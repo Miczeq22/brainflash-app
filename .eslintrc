@@ -8,6 +8,7 @@
     "node": true,
     "jest": true
   },
+  "plugins": ["react-hooks"],
   "overrides": [
     {
       "files": ["*.tsx", "*.ts"],
@@ -29,7 +30,7 @@
         "react/jsx-one-expression-per-line": "off",
         "react/no-this-in-sfc": "off",
         "func-names": "off",
-        "react-hooks/exhaustive-deps": "off"
+        "react-hooks/exhaustive-deps": "warn"
       }
     }
   ]
