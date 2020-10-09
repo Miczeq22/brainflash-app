@@ -1,13 +1,14 @@
-# 0.1.0 (2020-10-02)
+# 0.1.0 (2020-10-09)
 
 
 ### Features
 
 - Added locale feature ([a4d998c](https://github.com/Miczeq22/brainflash-app/commit/a4d998c20b3fad2348b53b636652adc5e95f3f4d))
+- Deck details page ([18684a4](https://github.com/Miczeq22/brainflash-app/commit/18684a4cd1abbca44551e8955b1d1a42e0414999))
 - Deck List Component ([e88d6cd](https://github.com/Miczeq22/brainflash-app/commit/e88d6cdcdbffb18d95777fba4d3c2f6f9a27909b))
 - Deck list item component ([86759ae](https://github.com/Miczeq22/brainflash-app/commit/86759aebacc500f250cae836ec33c84634596d89))
 - Deck List Provider ([5ee9ed5](https://github.com/Miczeq22/brainflash-app/commit/5ee9ed5b0b26db8e293466427fb2597f863df185))
-- Deck preview component ([cb9e7e5](https://github.com/Miczeq22/brainflash-app/commit/cb9e7e5fa79925c4c96aeb7d6388641c2366d147))
+- Deck preview component ([20ece1d](https://github.com/Miczeq22/brainflash-app/commit/20ece1d9bf89516286c4a3c732d52b79f7f45c61))
 - Guest topbar ([0883e40](https://github.com/Miczeq22/brainflash-app/commit/0883e40b345c95b64ec167bfd69bf1e98e7b57d8))
 - Input component ([e6206b7](https://github.com/Miczeq22/brainflash-app/commit/e6206b7bbbe5aa4ab41ee087cb81605dcbc468e8))
 - Language Select component ([6496f5f](https://github.com/Miczeq22/brainflash-app/commit/6496f5fc0ec8e247458dcecd5685500dbe5ef1c1))
@@ -22,8 +23,11 @@
 
 ### Refactoring & Improvements
 
-- Added language selector to topbar ([0c5fbc8](https://github.com/Miczeq22/brainflash-app/commit/0c5fbc867a275ec2316a4ddaa4edce40c792c056))
+- Added language selector to topbar ([152fcc1](https://github.com/Miczeq22/brainflash-app/commit/152fcc15ec8b0762e2eb396ec576ee75cb708c9d))
+- Auth fetch for apollo client ([a68dcd6](https://github.com/Miczeq22/brainflash-app/commit/a68dcd6c7902a4db34c6f406b6ac7de9411c3b49))
 - Connected local storage for auth provider ([f483437](https://github.com/Miczeq22/brainflash-app/commit/f4834372c131d2706ea2d1d99f6060b908b2d568))
+- Loader for decks ([934bda3](https://github.com/Miczeq22/brainflash-app/commit/934bda360a452d380c98ea551a530635b5665b37))
+- Refactored deck list and deck list item ([992bd25](https://github.com/Miczeq22/brainflash-app/commit/992bd25b6988955b343d829afc8fc902edd80504))
 
 
 ### Tests
@@ -46,4 +50,5 @@
 ### Miscellaneous
 
 - Project init ([d251f56](https://github.com/Miczeq22/brainflash-app/commit/d251f5692c4d62d1ff378c24fb220583e5075b7a))
+- Update README.md ([0aa71b8](https://github.com/Miczeq22/brainflash-app/commit/0aa71b84097b53e773776dbbfddae800927c9e10))
 
