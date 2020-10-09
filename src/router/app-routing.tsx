@@ -1,3 +1,4 @@
+import { DeckDetailsPage } from '@pages/deck-details/deck-details.page';
 import { HomePage } from '@pages/home/home.page';
 import { LoginPage } from '@pages/login/login.page';
 import { RegisterPage } from '@pages/register/register.page';
@@ -11,5 +12,6 @@ export const AppRoutes = () => (
     <GuestRoute path="/login" exact component={LoginPage} />
     <GuestRoute path="/register" exact component={RegisterPage} />
     <AuthenticatedRoute path="/" exact component={HomePage} />
+    <AuthenticatedRoute path="/deck-details/:id" exact component={DeckDetailsPage} />
   </Switch>
 );
