@@ -14,8 +14,3 @@ export const StyledList = styled.ul`
     width: 31%;
   }
 `;
-
-export const EmptyListText = styled.h3`
-  font-weight: 500;
-  font-size: 17px;
-`;
