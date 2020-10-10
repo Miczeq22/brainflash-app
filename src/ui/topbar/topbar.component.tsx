@@ -7,7 +7,10 @@ import React from 'react';
 import { ActionsContainer, StyledTopbar } from './topbar.styles';
 
 export const Topbar = () => {
-  const { dispatch } = useAuthState();
+  const {
+    dispatch,
+    state: { username },
+  } = useAuthState();
 
   const handleMenuClick = ({ key }: any) => {
     if (key === 'logout') {
@@ -31,7 +34,7 @@ export const Topbar = () => {
         <LanguageSelect />
         <Dropdown overlay={menu} trigger={['click']}>
           <Button>
-            Hello, Mikołaj <DownOutlined />
+            Hello, {username} <DownOutlined />
           </Button>
         </Dropdown>
       </ActionsContainer>

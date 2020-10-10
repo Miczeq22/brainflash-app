@@ -11,6 +11,8 @@ export const initialAuthState: AuthState = {
   refreshToken: '',
   isAuthorized: false,
   isRegisteredSuccessfully: false,
+  username: '',
+  userId: '',
 };
 
 export const AuthContext = React.createContext<AuthState | AuthStateApi>(initialAuthState);
