@@ -26,7 +26,8 @@
 - Added language selector to topbar ([152fcc1](https://github.com/Miczeq22/brainflash-app/commit/152fcc15ec8b0762e2eb396ec576ee75cb708c9d))
 - Auth fetch for apollo client ([a68dcd6](https://github.com/Miczeq22/brainflash-app/commit/a68dcd6c7902a4db34c6f406b6ac7de9411c3b49))
 - Connected local storage for auth provider ([f483437](https://github.com/Miczeq22/brainflash-app/commit/f4834372c131d2706ea2d1d99f6060b908b2d568))
-- Empty list improvement ([030ef48](https://github.com/Miczeq22/brainflash-app/commit/030ef48387b7fb87289dfee050c3eca413b4345a))
+- Empty list improvement ([19f629c](https://github.com/Miczeq22/brainflash-app/commit/19f629c3ed7140f1b598eb8a4eaefc956ac10e4e))
+- Get user data from JWT ([d29132a](https://github.com/Miczeq22/brainflash-app/commit/d29132a8862fdd3364455f285ab5e17a73c035c0))
 - Loader for decks ([934bda3](https://github.com/Miczeq22/brainflash-app/commit/934bda360a452d380c98ea551a530635b5665b37))
 - Refactored deck list and deck list item ([992bd25](https://github.com/Miczeq22/brainflash-app/commit/992bd25b6988955b343d829afc8fc902edd80504))
 

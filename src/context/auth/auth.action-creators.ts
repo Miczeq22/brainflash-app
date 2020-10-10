@@ -1,4 +1,10 @@
-import { AuthAction, CLEAR_TOKENS, REGISTERED_SUCCESSFULLY, SET_TOKENS } from './auth.reducer';
+import {
+  AuthAction,
+  CLEAR_TOKENS,
+  REGISTERED_SUCCESSFULLY,
+  SET_TOKENS,
+  SET_USER_DATA,
+} from './auth.reducer';
 
 export const setTokens: (accessToken: string, refreshToken: string) => AuthAction = (
   accessToken,
@@ -15,4 +21,13 @@ export const registerUser: () => AuthAction = () => ({
 
 export const logout: () => AuthAction = () => ({
   type: CLEAR_TOKENS,
+});
+
+export const setUserData: (username: string, userId: string) => AuthAction = (
+  username,
+  userId,
+) => ({
+  type: SET_USER_DATA,
+  username,
+  userId,
 });
