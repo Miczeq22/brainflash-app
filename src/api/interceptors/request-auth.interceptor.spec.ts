@@ -1,3 +1,4 @@
+import { authStorage } from '@context/auth/auth.storage';
 import { createClient } from 'react-fetching-library';
 import { ApiAction } from 'src/types';
 import { requestAuthInterceptor } from './request-auth.interceptor';
@@ -7,12 +8,14 @@ describe('Request auth interceptor', () => {
     const accessToken = '#access-token';
     const client = createClient();
 
+    authStorage.setAccessToken(accessToken);
+
     const action: ApiAction<unknown> = {
       endpoint: '/ednpoint',
       method: 'GET',
     };
 
-    expect(await requestAuthInterceptor(accessToken)(client)(action)).toEqual({
+    expect(await requestAuthInterceptor()(client)(action)).toEqual({
       ...action,
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -28,7 +31,9 @@ describe('Request auth interceptor', () => {
       method: 'GET',
     };
 
-    expect(await requestAuthInterceptor(null)(client)(action)).toEqual({
+    authStorage.setAccessToken('');
+
+    expect(await requestAuthInterceptor()(client)(action)).toEqual({
       ...action,
       headers: {
         Authorization: 'Bearer ',
@@ -47,7 +52,7 @@ describe('Request auth interceptor', () => {
       },
     };
 
-    expect(await requestAuthInterceptor(null)(client)(action)).toEqual({
+    expect(await requestAuthInterceptor()(client)(action)).toEqual({
       ...action,
       headers: {
         Authorization: 'Bearer ',
@@ -67,6 +72,6 @@ describe('Request auth interceptor', () => {
       },
     };
 
-    expect(await requestAuthInterceptor(null)(client)(action)).toEqual(action);
+    expect(await requestAuthInterceptor()(client)(action)).toEqual(action);
   });
 });
