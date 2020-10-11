@@ -1,23 +1,19 @@
-import { useAuthState } from '@hooks/use-auth-state/use-auth-state.hook';
 import React from 'react';
 import { ClientContextProvider, createClient } from 'react-fetching-library';
 import { requestAuthInterceptor } from '@api/interceptors/request-auth.interceptor';
+import { refreshTokenInterceptor } from '@api/interceptors/refresh-token.interceptor';
 
 interface FetchClientProviderProps {
   children: React.ReactNode;
 }
 
 export const FetchClientProvider = ({ children }: FetchClientProviderProps) => {
-  const {
-    state: { accessToken },
-  } = useAuthState();
-
   const client = React.useMemo(
     () =>
       createClient({
-        requestInterceptors: [requestAuthInterceptor(accessToken)],
+        requestInterceptors: [requestAuthInterceptor(), refreshTokenInterceptor()],
       }),
-    [accessToken],
+    [],
   );
 
   return <ClientContextProvider client={client}>{children}</ClientContextProvider>;

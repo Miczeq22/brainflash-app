@@ -1,9 +1,10 @@
+import { authStorage } from '@context/auth/auth.storage';
 import { RequestInterceptor } from 'react-fetching-library';
 import { ApiAction } from 'src/types';
 
-export const requestAuthInterceptor = (
-  accessToken: string | null,
-): RequestInterceptor => () => async (action: ApiAction<unknown>) => {
+export const requestAuthInterceptor = (): RequestInterceptor => () => async (
+  action: ApiAction<unknown>,
+) => {
   if (action.config?.skipAuthorization) {
     return action;
   }
@@ -11,8 +12,8 @@ export const requestAuthInterceptor = (
   return {
     ...action,
     headers: {
-      Authorization: `Bearer ${accessToken ?? ''}`,
       ...action.headers,
+      Authorization: `Bearer ${authStorage.getAccessToken() ?? ''}`,
     },
   };
 };
