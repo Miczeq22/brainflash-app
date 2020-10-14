@@ -24,9 +24,11 @@ export const Menu = () => {
       <ActionsContainer>
         <Logo />
         <ButtonContainer>
-          <Button type="primary">
-            Create new deck <PlusOutlined />
-          </Button>
+          <Link to="/deck-creator">
+            <Button type="primary">
+              Create new deck <PlusOutlined />
+            </Button>
+          </Link>
         </ButtonContainer>
         <NavigationHeading>Menu</NavigationHeading>
         <NavigationList>

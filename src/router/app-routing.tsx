@@ -1,3 +1,4 @@
+import { DeckCreatorPage } from '@pages/deck-creator/deck-creator.page';
 import { DeckDetailsPage } from '@pages/deck-details/deck-details.page';
 import { HomePage } from '@pages/home/home.page';
 import { LoginPage } from '@pages/login/login.page';
@@ -6,6 +7,7 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import { AuthenticatedRoute } from './authenticated-route';
 import { GuestRoute } from './guest-route';
+import { DeckCreatorProvider } from '@providers/deck-creator.provider';
 
 export const AppRoutes = () => (
   <Switch>
@@ -13,5 +15,8 @@ export const AppRoutes = () => (
     <GuestRoute path="/register" exact component={RegisterPage} />
     <AuthenticatedRoute path="/" exact component={HomePage} />
     <AuthenticatedRoute path="/deck-details/:id" exact component={DeckDetailsPage} />
+    <DeckCreatorProvider>
+      <AuthenticatedRoute path="/deck-creator" exact component={DeckCreatorPage} />
+    </DeckCreatorProvider>
   </Switch>
 );
