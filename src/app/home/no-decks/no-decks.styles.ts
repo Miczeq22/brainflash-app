@@ -8,12 +8,18 @@ export const StyledContainer = styled.section`
   align-items: center;
   justify-content: center;
 
-  & > button {
+  & > a {
     width: 20%;
     height: 50px;
-    border-radius: 30px;
-    font-weight: 500;
-    font-size: 17px;
+    display: block;
+
+    & > button {
+      width: 100%;
+      height: 50px;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 17px;
+    }
   }
 `;
 

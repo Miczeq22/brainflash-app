@@ -21,23 +21,29 @@ export const ActionsContainer = styled.section``;
 export const ButtonContainer = styled.section`
   margin: 40px 0;
 
-  & > button {
+  & > a {
+    display: block;
     width: 100%;
     height: 50px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
 
-    & > .anticon {
-      margin-left: 10px;
-      width: 18px;
-      height: 18px;
+    & > button {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
 
-      svg {
-        width: 100%;
-        height: 100%;
+      & > .anticon {
+        margin-left: 10px;
+        width: 18px;
+        height: 18px;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }

@@ -12,6 +12,7 @@ module.exports = ({ config }) => {
     '@context': path.resolve(__dirname, '..', 'src', 'context'),
     '@i18n': path.resolve(__dirname, '..', 'src', 'i18n'),
     '@graphql': path.resolve(__dirname, '..', 'src', 'graphql'),
+    '@providers': path.resolve(__dirname, '..', 'src', 'providers'),
   };
 
   return config;
