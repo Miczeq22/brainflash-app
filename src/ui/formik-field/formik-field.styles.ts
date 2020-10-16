@@ -21,3 +21,8 @@ export const ErrorMessage = styled.p`
   font-size: 14px;
   margin-top: 5px;
 `;
+
+export const FieldLabel = styled.label`
+  margin-bottom: 5px;
+  display: block;
+`;
