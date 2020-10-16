@@ -3,18 +3,30 @@ import { RcCustomRequestOptions } from 'antd/lib/upload/interface';
 import React from 'react';
 import { useMutation } from 'react-fetching-library';
 import UploadIcon from '@assets/upload.svg';
-import { Spin } from 'antd';
 import { useDeckCreatorState } from '@hooks/use-deck-creator-state/use-deck-creator-state.hook';
 import {
-  setDeckImageStepDone,
+  setDeckCreatorStep,
   setDeckImageUrl,
   startUploadingDeckImage,
   stopUploadingDeckImage,
 } from '@context/deck-creator/deck-creator.action-creators';
-import { StyledContainer, StyledDragger, StyledImage, StyledText } from './image-uploader.styles';
+import {
+  StyledContainer,
+  StyledDragger,
+  StyledImage,
+  StyledSpin,
+  StyledText,
+  UploadedImageContainer,
+  UploadedImagePreview,
+} from './image-uploader.styles';
+import { Button } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
 
 export const ImageUploaderComponent = () => {
-  const { dispatch } = useDeckCreatorState();
+  const {
+    dispatch,
+    state: { uploadingImage, imageUrl },
+  } = useDeckCreatorState();
 
   const { mutate } = useMutation(uploadFileAction);
 
@@ -34,25 +46,38 @@ export const ImageUploaderComponent = () => {
 
       dispatch(setDeckImageUrl(response.fileLocation));
       dispatch(stopUploadingDeckImage());
-      dispatch(setDeckImageStepDone(true));
+      dispatch(setDeckCreatorStep(1));
     }
   };
 
+  const handleImageRemove = () => {
+    dispatch(setDeckImageUrl(null));
+  };
+
   return (
-    <Spin spinning={false} tip="Uploading image...">
-      <StyledDragger
-        name="file"
-        multiple={false}
-        showUploadList={false}
-        customRequest={handleRequest}
-        accept="image/*"
-        className="file-uploader"
-      >
-        <StyledContainer>
-          <StyledImage alt="Drag and drop files" src={UploadIcon} />
-          <StyledText>Drag an image here or click to browser for an image to upload.</StyledText>
-        </StyledContainer>
-      </StyledDragger>
-    </Spin>
+    <StyledSpin spinning={uploadingImage} tip="Uploading image...">
+      {imageUrl !== null ? (
+        <UploadedImageContainer>
+          <UploadedImagePreview imageUrl={imageUrl} />
+          <Button icon={<DeleteOutlined />} onClick={handleImageRemove}>
+            Delete image
+          </Button>
+        </UploadedImageContainer>
+      ) : (
+        <StyledDragger
+          name="file"
+          multiple={false}
+          showUploadList={false}
+          customRequest={handleRequest}
+          accept="image/*"
+          className="file-uploader"
+        >
+          <StyledContainer>
+            <StyledImage alt="Drag and drop files" src={UploadIcon} />
+            <StyledText>Drag an image here or click to browse for an image to upload.</StyledText>
+          </StyledContainer>
+        </StyledDragger>
+      )}
+    </StyledSpin>
   );
 };

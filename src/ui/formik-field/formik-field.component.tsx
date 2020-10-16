@@ -1,13 +1,14 @@
 import React from 'react';
-import { ErrorMessage, FieldContainer } from './formik-field.styles';
+import { ErrorMessage, FieldContainer, FieldLabel } from './formik-field.styles';
 
 interface ErrorFieldProps {
   children: React.ReactNode;
   touched?: boolean;
   error?: string;
+  label?: string;
 }
 
-export const FormikField = ({ children, touched = false, error }: ErrorFieldProps) => {
+export const FormikField = ({ children, touched = false, error, label }: ErrorFieldProps) => {
   const shouldDisplayError = React.useMemo<boolean>(() => touched && Boolean(error), [
     touched,
     error,
@@ -15,6 +16,7 @@ export const FormikField = ({ children, touched = false, error }: ErrorFieldProp
 
   return (
     <FieldContainer displayError={shouldDisplayError}>
+      {label && <FieldLabel>{label}</FieldLabel>}
       {children}
       {shouldDisplayError && <ErrorMessage>{error}</ErrorMessage>}
     </FieldContainer>

@@ -5,7 +5,7 @@ export const FormContainer = styled.section`
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
 
   @media screen and (max-width: ${({ theme }) => theme.deviceBreakpoint.mobile}) {
@@ -25,7 +25,7 @@ export const FormContainer = styled.section`
   }
 
   & > form {
-    margin-top: 200px;
+    margin-top: 10px;
   }
 `;
 

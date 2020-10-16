@@ -9,10 +9,11 @@ export interface DeckCreatorStateApi {
 export const initialDeckCreatorState: DeckCreatorState = {
   imageUrl: null,
   uploadingImage: false,
-  imageStepDone: false,
-  name: 'Title goes here...',
-  description: 'Description goes here...',
+  name: '',
+  description: '',
   tags: [],
+  step: 0,
+  isReadyToSubmit: false,
 };
 
 export const DeckCreatorContext = React.createContext<DeckCreatorState | DeckCreatorStateApi>(
