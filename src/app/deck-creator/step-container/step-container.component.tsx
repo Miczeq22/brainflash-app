@@ -3,33 +3,11 @@ import { setDeckCreatorStep } from '@context/deck-creator/deck-creator.action-cr
 import { useDeckCreatorState } from '@hooks/use-deck-creator-state/use-deck-creator-state.hook';
 import { Steps } from 'antd';
 import React from 'react';
-import styled from 'styled-components';
-
-const StyledContainer = styled.section`
-  background-color: ${({ theme }) => theme.color.white};
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #ececec;
-`;
-
-const SectionTitle = styled.h3`
-  font-weight: 700;
-  font-size: 24px;
-  color: ${({ theme }) => theme.color.fontPrimary};
-`;
-
-const SectionDescription = styled.p`
-  font-size: 18px;
-  max-width: 55%;
-  line-height: 30px;
-  margin: 15px 0 30px;
-  color: ${({ theme }) => theme.color.fontPrimary};
-  font-weight: 300;
-`;
+import { SectionDescription, SectionTitle, StyledContainer } from './step-container.styles';
 
 export const StepContainer = () => {
   const {
-    state: { step },
+    state: { step, name, description, tags },
     dispatch,
   } = useDeckCreatorState();
 
@@ -50,9 +28,9 @@ export const StepContainer = () => {
           key={1}
           title="Add deck name and description"
           icon={<EditOutlined />}
-          disabled
+          disabled={!name.trim() || !description.trim()}
         />
-        <Steps.Step key={2} title="Set deck tags" disabled icon={<TagsOutlined />} />
+        <Steps.Step key={2} title="Set deck tags" disabled={!tags.length} icon={<TagsOutlined />} />
       </Steps>
     </StyledContainer>
   );

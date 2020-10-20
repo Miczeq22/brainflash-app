@@ -3,7 +3,7 @@ import { Topbar } from '@ui/topbar/topbar.component';
 import React from 'react';
 import { StepContainer } from '@app/deck-creator/step-container/step-container.component';
 import { ImageUploaderComponent } from '@app/deck-creator/image-uploader/image-uploader.component';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 import { CoffeeOutlined } from '@ant-design/icons';
 import { useDeckCreatorState } from '@hooks/use-deck-creator-state/use-deck-creator-state.hook';
 import {
@@ -21,12 +21,15 @@ import { TitleAndDescriptionForm } from '@app/deck-creator/title-and-description
 import { DeckTags } from '@app/deck-tags/deck-tags.component';
 import { useMutation } from 'react-fetching-library';
 import { createDeckAction } from '@api/actions/deck-creator/deck-creator.actions';
+import { useHistory } from 'react-router-dom';
 
 export const DeckCreatorPage = () => {
   const {
-    state: { step, imageUrl, uploadingImage, isReadyToSubmit, name, description, tags },
+    state: { step, imageUrl, imageName, uploadingImage, isReadyToSubmit, name, description, tags },
     dispatch,
   } = useDeckCreatorState();
+
+  const history = useHistory();
 
   const { mutate } = useMutation(createDeckAction);
 
@@ -42,14 +45,19 @@ export const DeckCreatorPage = () => {
     dispatch(setDeckReadyToSubmit(false));
 
     async function createDeck() {
-      const { payload } = await mutate({
+      const { payload, error } = await mutate({
         name,
         description,
         tags,
-        imageUrl: imageUrl ?? undefined,
+        imageUrl: imageName ?? undefined,
       });
 
-      console.log(payload);
+      if (error) {
+        message.error(payload?.error as string);
+      } else {
+        message.success('Deck created successfully');
+        history.push(`/deck-details/${payload?.deckId as string}`);
+      }
     }
 
     createDeck();

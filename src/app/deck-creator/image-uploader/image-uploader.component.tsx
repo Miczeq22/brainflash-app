@@ -6,7 +6,7 @@ import UploadIcon from '@assets/upload.svg';
 import { useDeckCreatorState } from '@hooks/use-deck-creator-state/use-deck-creator-state.hook';
 import {
   setDeckCreatorStep,
-  setDeckImageUrl,
+  setDeckImageData,
   startUploadingDeckImage,
   stopUploadingDeckImage,
 } from '@context/deck-creator/deck-creator.action-creators';
@@ -44,14 +44,14 @@ export const ImageUploaderComponent = () => {
     if (response) {
       onSuccess(response as object, file);
 
-      dispatch(setDeckImageUrl(response.fileLocation));
+      dispatch(setDeckImageData(response.fileLocation, response.fileName));
       dispatch(stopUploadingDeckImage());
       dispatch(setDeckCreatorStep(1));
     }
   };
 
   const handleImageRemove = () => {
-    dispatch(setDeckImageUrl(null));
+    dispatch(setDeckImageData(null, null));
   };
 
   return (

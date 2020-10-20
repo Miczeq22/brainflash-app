@@ -1,5 +1,6 @@
 export interface DeckCreatorState {
   imageUrl: string | null;
+  imageName: string | null;
   uploadingImage: boolean;
   name: string;
   description: string;
@@ -11,6 +12,7 @@ export interface DeckCreatorState {
 export interface DeckCreatorAction {
   type: string;
   imageUrl?: string | null;
+  imageName?: string | null;
   name?: string;
   description?: string;
   tags?: string[];
@@ -18,7 +20,7 @@ export interface DeckCreatorAction {
   isReadyToSubmit?: boolean;
 }
 
-export const SET_IMAGE_URL = 'deck-creator/set-image-url';
+export const SET_IMAGE_DATA = 'deck-creator/set-image-data';
 export const START_UPLOADING_IMAGE = 'deck-creator/start-uploading-image';
 export const STOP_UPLOADING_IMAGE = 'deck-creator/stop-uploading-image';
 export const SET_NAME = 'deck-creator/set-name';
@@ -32,10 +34,11 @@ export const deckCreatorReducer = (
   action: DeckCreatorAction,
 ): DeckCreatorState => {
   switch (action.type) {
-    case SET_IMAGE_URL:
+    case SET_IMAGE_DATA:
       return {
         ...state,
         imageUrl: action.imageUrl as string,
+        imageName: action.imageName as string,
       };
 
     case START_UPLOADING_IMAGE:

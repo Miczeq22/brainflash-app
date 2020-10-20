@@ -8,6 +8,7 @@ export interface DeckCreatorStateApi {
 
 export const initialDeckCreatorState: DeckCreatorState = {
   imageUrl: null,
+  imageName: null,
   uploadingImage: false,
   name: '',
   description: '',
