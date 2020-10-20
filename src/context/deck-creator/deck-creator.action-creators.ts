@@ -1,7 +1,7 @@
 import {
   DeckCreatorAction,
   SET_DESCRIPTION,
-  SET_IMAGE_URL,
+  SET_IMAGE_DATA,
   SET_NAME,
   SET_READY_TO_SUBMIT,
   SET_STEP,
@@ -10,9 +10,13 @@ import {
   STOP_UPLOADING_IMAGE,
 } from './deck-creator.reducer';
 
-export const setDeckImageUrl: (imageUrl: string | null) => DeckCreatorAction = (imageUrl) => ({
-  type: SET_IMAGE_URL,
+export const setDeckImageData: (
+  imageUrl: string | null,
+  imageName: string | null,
+) => DeckCreatorAction = (imageUrl, imageName) => ({
+  type: SET_IMAGE_DATA,
   imageUrl,
+  imageName,
 });
 
 export const startUploadingDeckImage: () => DeckCreatorAction = () => ({

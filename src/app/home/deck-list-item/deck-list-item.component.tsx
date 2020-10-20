@@ -14,7 +14,7 @@ interface DeckListItemProps {
   name: string;
   rating: number;
   numberOfRatings: number;
-  imageUrl?: string;
+  thumbnailUrl?: string;
   active?: boolean;
 }
 
@@ -24,11 +24,11 @@ export const DeckListItem = ({
   rating,
   numberOfRatings,
   active = false,
-  imageUrl,
+  thumbnailUrl,
 }: DeckListItemProps) => (
   <StyledListItem active={active}>
     <StyledLink to={`/deck-details/${id}`}>
-      <DeckImg imgUrl={imageUrl} />
+      <DeckImg imgUrl={thumbnailUrl} />
       <DescriptionContainer>
         <StyledTitle>{name}</StyledTitle>
         <RatingsContainer>

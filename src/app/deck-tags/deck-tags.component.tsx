@@ -40,6 +40,7 @@ export const DeckTags = () => {
   const handleSelectChange = (value: string[]) => {
     formik.setFieldValue('tags', value);
     formik.touched.tags = true;
+    dispatch(setDeckTags(value));
   };
 
   return (

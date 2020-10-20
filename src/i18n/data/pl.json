@@ -6,5 +6,14 @@
   "login.remember": "Zapamiętaj mnie",
   "login.forgotPassword": "Zapomniałeś hasłą?",
   "login.submit": "Zaloguj",
-  "login.register": "Stwórz nowe konto"
+  "login.register": "Stwórz nowe konto",
+  "register.title": "Zarejestruj się w",
+  "register.description": "Zarejestruj się do aplikacji Brainflash. Karta kredytowa nie jest wymagana. Stwórz konto i zacznij używać aplikacji już dziś!",
+  "register.username": "Podaj swoje imie lub nick...",
+  "register.email": "Podaj adres email...",
+  "register.password": "Podaj hasło...",
+  "register.confirmPassword": "Powtórz hasło...",
+  "register.addToMailing": "Dodaj do newslettera.",
+  "register.termsAndConditions": "Przeczytałem i zapoznałem się z",
+  "register.termsAndConditionsLink": "Regulaminem."
 }

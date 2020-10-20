@@ -8,7 +8,7 @@ interface DeckInList {
   name: string;
   rating: number;
   numberOfRatings: number;
-  imageUrl?: string;
+  thumbnailUrl?: string;
 }
 
 interface DeckListProps {

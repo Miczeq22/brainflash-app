@@ -1,4 +1,6 @@
 import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
+import { useLocale } from '@hooks/use-locale/use-locale.hook';
+import { AppMessages } from '@i18n/messages';
 import { FormikField } from '@ui/formik-field/formik-field.component';
 import { Button, Checkbox, Input } from 'antd';
 import { useFormik } from 'formik';
@@ -27,6 +29,8 @@ interface RegisterFormProps {
 }
 
 export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
+  const { formatMessage } = useLocale();
+
   const formik = useFormik<RegisterInput>({
     initialValues: {
       email: '',
@@ -57,15 +61,22 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
       <RegisterHeading>
-        Register to <span>Brainflash</span>
+        {formatMessage({
+          id: AppMessages['register.title'],
+        })}{' '}
+        <span>Brainflash</span>
       </RegisterHeading>
       <RegisterDescription>
-        Sign up to Brainflash app. No credit card required. Start using today!
+        {formatMessage({
+          id: AppMessages['register.description'],
+        })}
       </RegisterDescription>
       <InputsContainer>
         <FormikField touched={formik.touched.username} error={formik.errors.username}>
           <Input
-            placeholder="Enter your username..."
+            placeholder={formatMessage({
+              id: AppMessages['register.username'],
+            })}
             prefix={<UserOutlined />}
             {...formik.getFieldProps('username')}
           />
@@ -74,21 +85,27 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
           <Input
             prefix={<MailOutlined />}
             type="email"
-            placeholder="Enter your email address..."
+            placeholder={formatMessage({
+              id: AppMessages['register.email'],
+            })}
             {...formik.getFieldProps('email')}
           />
         </FormikField>
         <FormikField touched={formik.touched.password} error={formik.errors.password}>
           <Input.Password
             prefix={<LockOutlined />}
-            placeholder="Enter your password..."
+            placeholder={formatMessage({
+              id: AppMessages['register.password'],
+            })}
             {...formik.getFieldProps('password')}
           />
         </FormikField>
         <FormikField touched={formik.touched.confirmPassword} error={formik.errors.confirmPassword}>
           <Input.Password
             prefix={<LockOutlined />}
-            placeholder="Confirm password..."
+            placeholder={formatMessage({
+              id: AppMessages['register.confirmPassword'],
+            })}
             {...formik.getFieldProps('confirmPassword')}
           />
         </FormikField>
@@ -98,14 +115,23 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
           {...formik.getFieldProps('addToMailingList')}
           checked={formik.values.addToMailingList}
         >
-          Add to mailing list.
+          {formatMessage({
+            id: AppMessages['register.addToMailing'],
+          })}
         </Checkbox>
         <FormikField touched={formik.touched.termsAccepted} error={formik.errors.termsAccepted}>
           <Checkbox
             {...formik.getFieldProps('termsAccepted')}
             checked={formik.values.termsAccepted}
           >
-            I have read, understand and agree to <Link to="/">Terms and Conditions.</Link>
+            {formatMessage({
+              id: AppMessages['register.termsAndConditions'],
+            })}{' '}
+            <Link to="/">
+              {formatMessage({
+                id: AppMessages['register.termsAndConditionsLink'],
+              })}
+            </Link>
           </Checkbox>
         </FormikField>
       </HelpersContainer>

@@ -37,7 +37,7 @@ export const GET_DECKS_QUERY = gql`
       tags
       rating
       numberOfRatings
-      imageUrl
+      thumbnailUrl
     }
   }
 `;
