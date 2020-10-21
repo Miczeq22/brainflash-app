@@ -33,16 +33,13 @@ export const Menu = () => {
         <NavigationHeading>Menu</NavigationHeading>
         <NavigationList>
           <NavigationListItem active={isActiveRoute('/')}>
-            <Link to="/">Dashboard</Link>
-          </NavigationListItem>
-          <NavigationListItem active={isActiveRoute('/decks')}>
-            <Link to="/decks">Explore decks</Link>
+            <Link to="/">Explore decks</Link>
           </NavigationListItem>
           <NavigationListItem active={isActiveRoute('/your-decks')}>
             <Link to="/your-decks">Your decks</Link>
           </NavigationListItem>
-          <NavigationListItem active={isActiveRoute('/pinned-decks')}>
-            <Link to="/pinned-decks">Pinned decks</Link>
+          <NavigationListItem active={isActiveRoute('/enrolled-decks')}>
+            <Link to="/enrolled-decks">Enrolled decks</Link>
           </NavigationListItem>
         </NavigationList>
       </ActionsContainer>

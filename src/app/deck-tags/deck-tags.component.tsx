@@ -10,6 +10,8 @@ import React from 'react';
 import * as Yup from 'yup';
 import { CheckOutlined } from '@ant-design/icons';
 import { StyledForm } from './deck-tags.styles';
+import { useQuery } from '@apollo/client';
+import { GET_ALL_TAGS } from '@graphql/queries/get-all-tags.query';
 
 interface FormPayload {
   tags: string[];
@@ -20,6 +22,8 @@ export const DeckTags = () => {
     dispatch,
     state: { tags },
   } = useDeckCreatorState();
+
+  const { loading, data } = useQuery<{ getAllTags: string[] }>(GET_ALL_TAGS);
 
   const handleSubmit = (values: FormPayload) => {
     dispatch(setDeckTags(values.tags));
@@ -54,11 +58,16 @@ export const DeckTags = () => {
           mode="tags"
           allowClear
           style={{ width: '100%', margin: '0 auto', display: 'block' }}
-          placeholder="Enter deck tags..."
+          placeholder={loading ? 'Fetching tags...' : 'Enter deck tags...'}
           {...formik.getFieldProps('tags')}
           onChange={handleSelectChange}
+          loading={loading}
         >
-          []
+          {data?.getAllTags.map((tag) => (
+            <Select.Option value={tag} key={tag}>
+              {tag}
+            </Select.Option>
+          ))}
         </Select>
       </FormikField>
       <Button icon={<CheckOutlined />} type="primary" htmlType="submit">

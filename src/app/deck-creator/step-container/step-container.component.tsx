@@ -7,7 +7,7 @@ import { SectionDescription, SectionTitle, StyledContainer } from './step-contai
 
 export const StepContainer = () => {
   const {
-    state: { step, name, description, tags },
+    state: { step, tags, imageName },
     dispatch,
   } = useDeckCreatorState();
 
@@ -28,7 +28,7 @@ export const StepContainer = () => {
           key={1}
           title="Add deck name and description"
           icon={<EditOutlined />}
-          disabled={!name.trim() || !description.trim()}
+          disabled={imageName === null}
         />
         <Steps.Step key={2} title="Set deck tags" disabled={!tags.length} icon={<TagsOutlined />} />
       </Steps>
