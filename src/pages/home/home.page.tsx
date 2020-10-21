@@ -8,7 +8,9 @@ import { Spin } from 'antd';
 import React from 'react';
 
 export const HomePage = () => {
-  const { data, loading } = useQuery(GET_DECKS_QUERY);
+  const { data, loading } = useQuery(GET_DECKS_QUERY, {
+    fetchPolicy: 'network-only',
+  });
 
   return (
     <Layout>

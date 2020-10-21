@@ -8,12 +8,16 @@ import { Switch } from 'react-router-dom';
 import { AuthenticatedRoute } from './authenticated-route';
 import { GuestRoute } from './guest-route';
 import { DeckCreatorProvider } from '@providers/deck-creator.provider';
+import { YourDecks } from '@pages/your-decks/your-decks.page';
+import { EnrolledDecks } from '@pages/enrolled-decks/enrolled-decks.component';
 
 export const AppRoutes = () => (
   <Switch>
     <GuestRoute path="/login" exact component={LoginPage} />
     <GuestRoute path="/register" exact component={RegisterPage} />
     <AuthenticatedRoute path="/" exact component={HomePage} />
+    <AuthenticatedRoute path="/your-decks" exact component={YourDecks} />
+    <AuthenticatedRoute path="/enrolled-decks" exact component={EnrolledDecks} />
     <AuthenticatedRoute path="/deck-details/:id" exact component={DeckDetailsPage} />
     <DeckCreatorProvider>
       <AuthenticatedRoute path="/deck-creator" exact component={DeckCreatorPage} />
