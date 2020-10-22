@@ -13,6 +13,7 @@ export const DeckDetailsPage = () => {
     variables: {
       deckID: id,
     },
+    fetchPolicy: 'network-only',
   });
 
   return (

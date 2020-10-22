@@ -11,6 +11,17 @@ export const StyledContainer = styled.article`
   height: 100%;
 `;
 
+export const DropdownContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    line-height: initial;
+    font-size: 19px;
+  }
+`;
+
 export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -20,9 +31,9 @@ export const StyledHeader = styled.header`
 export const StyledImage = styled.div<StyledImageProps>`
   height: 400px;
   width: 50%;
-  background-color: rgba(95, 129, 244, 0.3);
   border-radius: 40px;
-  ${({ imageUrl }) => imageUrl && `background: url('${imageUrl}') center/cover`};
+  ${({ imageUrl }) => imageUrl && `background: url('${imageUrl}') center/cover;`};
+  background-color: rgba(95, 129, 244, 0.3);
 `;
 
 export const ActionsContainer = styled.section`
