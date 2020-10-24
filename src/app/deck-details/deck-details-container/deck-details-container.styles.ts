@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import styled from 'styled-components';
 
 interface StyledImageProps {
@@ -15,6 +16,7 @@ export const DropdownContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 30px;
 
   button {
     line-height: initial;
@@ -49,6 +51,16 @@ export const StyledTitle = styled.h2`
   font-size: 31px;
   text-align: center;
   margin-bottom: 15px;
+
+  position: relative;
+`;
+
+export const EditNameButton = styled(Button)`
+  position: absolute;
+  top: 0;
+  font-size: 13px;
+  padding: 0;
+  padding-left: 5px;
 `;
 
 export const ButtonsContainer = styled.div`
