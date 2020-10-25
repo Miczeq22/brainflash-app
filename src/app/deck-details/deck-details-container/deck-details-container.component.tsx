@@ -10,6 +10,7 @@ import {
   DescriptionContainer,
   DescriptionTitle,
   DropdownContainer,
+  EditDescriptionButton,
   EditNameButton,
   StyledContainer,
   StyledHeader,
@@ -18,7 +19,11 @@ import {
 } from './deck-details-container.styles';
 import { EditName } from '../edit-name/edit-name.component';
 import { useDeckDetailsState } from '@hooks/use-deck-details-state/use-deck-details-state.hook';
-import { setDeckNameEditMode } from '@context/deck-details/deck-details.action-creators';
+import {
+  setDeckDescriptionEditMode,
+  setDeckNameEditMode,
+} from '@context/deck-details/deck-details.action-creators';
+import { EditDescription } from '../edit-description/edit-description.component';
 
 interface DeckDetailsContainerProps extends GetDeckdetailsData {}
 
@@ -33,7 +38,7 @@ export const DeckDetailsContainer = ({
   isDeckOwner,
 }: DeckDetailsContainerProps) => {
   const {
-    state: { isEditNameMode },
+    state: { isEditNameMode, isEditDescriptionMode },
     dispatch,
   } = useDeckDetailsState();
 
@@ -49,6 +54,8 @@ export const DeckDetailsContainer = ({
   );
 
   const handleEditName = () => dispatch(setDeckNameEditMode(true));
+
+  const handleEditDescription = () => dispatch(setDeckDescriptionEditMode(true));
 
   return (
     <StyledContainer>
@@ -86,8 +93,19 @@ export const DeckDetailsContainer = ({
         </ActionsContainer>
       </StyledHeader>
       <DescriptionContainer>
-        <DescriptionTitle>Description</DescriptionTitle>
-        <Description>{description}</Description>
+        {isEditDescriptionMode ? (
+          <EditDescription actualDescription={description} deckId={id} />
+        ) : (
+          <>
+            <DescriptionTitle>
+              Description
+              <EditDescriptionButton type="link" onClick={handleEditDescription}>
+                Edit description
+              </EditDescriptionButton>
+            </DescriptionTitle>
+            <Description>{description}</Description>
+          </>
+        )}
       </DescriptionContainer>
     </StyledContainer>
   );
