@@ -10,15 +10,20 @@ import {
   DescriptionContainer,
   DescriptionTitle,
   DropdownContainer,
+  EditNameButton,
   StyledContainer,
   StyledHeader,
   StyledImage,
   StyledTitle,
 } from './deck-details-container.styles';
+import { EditName } from '../edit-name/edit-name.component';
+import { useDeckDetailsState } from '@hooks/use-deck-details-state/use-deck-details-state.hook';
+import { setDeckNameEditMode } from '@context/deck-details/deck-details.action-creators';
 
 interface DeckDetailsContainerProps extends GetDeckdetailsData {}
 
 export const DeckDetailsContainer = ({
+  id,
   name,
   description,
   rating,
@@ -27,14 +32,23 @@ export const DeckDetailsContainer = ({
   published,
   isDeckOwner,
 }: DeckDetailsContainerProps) => {
+  const {
+    state: { isEditNameMode },
+    dispatch,
+  } = useDeckDetailsState();
+
   const menu = (
     <Menu>
+      <Menu.Item key="add-card">Add new card</Menu.Item>
+      <Menu.Item key="add-card">Show cards</Menu.Item>
+      <Menu.Divider />
       <Menu.Item key="publish/unpublish">{published ? 'Unpublish' : 'Publish'}</Menu.Item>
-      <Menu.Item key="edit">Edit</Menu.Item>
       <Menu.Divider />
       <Menu.Item key="delete">Delete</Menu.Item>
     </Menu>
   );
+
+  const handleEditName = () => dispatch(setDeckNameEditMode(true));
 
   return (
     <StyledContainer>
@@ -50,7 +64,18 @@ export const DeckDetailsContainer = ({
               </Dropdown>
             </DropdownContainer>
           )}
-          <StyledTitle>{name}</StyledTitle>
+          {isEditNameMode ? (
+            <EditName actualName={name} deckId={id} />
+          ) : (
+            <StyledTitle>
+              {name}
+              {isDeckOwner && (
+                <EditNameButton type="link" onClick={handleEditName}>
+                  Edit name
+                </EditNameButton>
+              )}
+            </StyledTitle>
+          )}
           <Ratings ratings={rating} numberOfRatings={numberOfRatings} />
           <ButtonsContainer>
             <Button type="primary" icon={<CheckCircleTwoTone />}>
