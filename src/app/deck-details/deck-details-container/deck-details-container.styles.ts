@@ -51,16 +51,12 @@ export const StyledTitle = styled.h2`
   font-size: 31px;
   text-align: center;
   margin-bottom: 15px;
-
-  position: relative;
+  display: flex;
 `;
 
 export const EditNameButton = styled(Button)`
-  position: absolute;
-  top: 0;
-  font-size: 13px;
-  padding: 0;
-  padding-left: 5px;
+  margin-left: 5px;
+  align-items: center;
 `;
 
 export const ButtonsContainer = styled.div`
