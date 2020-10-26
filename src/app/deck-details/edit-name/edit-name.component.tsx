@@ -33,6 +33,7 @@ export const EditName = ({ actualName, deckId }: EditNameProps) => {
     if (error) {
       message.error(payload?.error);
     } else {
+      message.success('Deck name updated successfuly.');
       dispatch(setDeckNameEditMode(false));
     }
   };

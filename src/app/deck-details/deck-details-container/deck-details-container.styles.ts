@@ -59,6 +59,11 @@ export const EditNameButton = styled(Button)`
   align-items: center;
 `;
 
+export const EditDescriptionButton = styled(Button)`
+  padding: 0;
+  margin-left: 5px;
+`;
+
 export const ButtonsContainer = styled.div`
   width: 100%;
   margin-top: 50px;
@@ -87,6 +92,8 @@ export const DescriptionContainer = styled.section`
 export const DescriptionTitle = styled.h3`
   font-size: 23px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
 `;
 
 export const Description = styled.p`

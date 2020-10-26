@@ -9,6 +9,7 @@ export interface DeckDetailsStateApi {
 export const initialDeckDetailsState: DeckDetailsState = {
   isEditNameMode: false,
   shouldReloadData: false,
+  isEditDescriptionMode: false,
 };
 
 export const DeckDetailsContext = React.createContext<DeckDetailsState | DeckDetailsStateApi>(
