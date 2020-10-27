@@ -2,16 +2,19 @@ export interface DeckDetailsState {
   isEditNameMode: boolean;
   isEditDescriptionMode: boolean;
   shouldReloadData: boolean;
+  isEditImageUrlMode: boolean;
 }
 
 export interface DeckDetailsAction {
   type: string;
   isEditNameMode?: boolean;
   isEditDescriptionMode?: boolean;
+  isEditImageUrlMode?: boolean;
 }
 
 export const SET_EDIT_NAME_MODE = 'deck-details/set-edit-name-mode';
 export const SET_EDIT_DESCRIPTION_MODE = 'deck-details/set-description-mode';
+export const SET_EDIT_IMAGE_URL_MODE = 'deck-details/set-image-url-mode';
 export const RELOAD_DATA = 'deck-details/reload-data';
 
 export const deckDetailsReducer = (
@@ -30,6 +33,13 @@ export const deckDetailsReducer = (
       return {
         ...state,
         isEditDescriptionMode: action.isEditDescriptionMode as boolean,
+        shouldReloadData: true,
+      };
+
+    case SET_EDIT_IMAGE_URL_MODE:
+      return {
+        ...state,
+        isEditImageUrlMode: action.isEditImageUrlMode as boolean,
         shouldReloadData: true,
       };
 

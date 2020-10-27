@@ -1,7 +1,8 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import { GetDeckdetailsData } from '@graphql/queries/get-deck-details.query';
 import { Ratings } from '@ui/ratings/ratings.component';
-import { Button, Dropdown, Menu } from 'antd';
+import { Button, Dropdown, Menu, message, Modal } from 'antd';
 import { CalendarTwoTone, CheckCircleTwoTone, MoreOutlined } from '@ant-design/icons';
 import {
   ActionsContainer,
@@ -21,9 +22,13 @@ import { EditName } from '../edit-name/edit-name.component';
 import { useDeckDetailsState } from '@hooks/use-deck-details-state/use-deck-details-state.hook';
 import {
   setDeckDescriptionEditMode,
+  setDeckImageUrlEditMode,
   setDeckNameEditMode,
 } from '@context/deck-details/deck-details.action-creators';
 import { EditDescription } from '../edit-description/edit-description.component';
+import { EditImage } from '../edit-image/edit-image.component';
+import { useMutation } from 'react-fetching-library';
+import { deleteDeckImage } from '@api/actions/deck-details/deck-details.action';
 
 interface DeckDetailsContainerProps extends GetDeckdetailsData {}
 
@@ -42,6 +47,8 @@ export const DeckDetailsContainer = ({
     dispatch,
   } = useDeckDetailsState();
 
+  const { mutate: deleteImage } = useMutation(deleteDeckImage);
+
   const menu = (
     <Menu>
       <Menu.Item key="add-card">Add new card</Menu.Item>
@@ -53,14 +60,49 @@ export const DeckDetailsContainer = ({
     </Menu>
   );
 
+  const deleteExistingImage = async () => {
+    await deleteImage({
+      deckId: id,
+    });
+
+    message.success('Image deleted successfully');
+
+    dispatch(setDeckImageUrlEditMode(false));
+  };
+
   const handleEditName = () => dispatch(setDeckNameEditMode(true));
 
   const handleEditDescription = () => dispatch(setDeckDescriptionEditMode(true));
 
+  const handleEditImageUrl = () => {
+    Modal.confirm({
+      title: 'Updating deck image',
+      content: 'Do you want to delete existing image and upload new one?',
+      onOk: () => deleteExistingImage(),
+      okText: 'Yes, upload new image',
+      cancelText: 'Keep existing image',
+      width: '40%',
+      centered: true,
+      autoFocusButton: 'cancel',
+    });
+  };
+
   return (
     <StyledContainer>
       <StyledHeader>
-        <StyledImage imageUrl={imageUrl} />
+        {imageUrl ? (
+          <StyledImage imageUrl={imageUrl}>
+            {isDeckOwner && (
+              <Button type="dashed" onClick={handleEditImageUrl}>
+                Edit deck image
+              </Button>
+            )}
+          </StyledImage>
+        ) : isDeckOwner ? (
+          <EditImage deckId={id} />
+        ) : (
+          <StyledImage />
+        )}
         <ActionsContainer>
           {isDeckOwner && (
             <DropdownContainer>
@@ -99,9 +141,11 @@ export const DeckDetailsContainer = ({
           <>
             <DescriptionTitle>
               Description
-              <EditDescriptionButton type="link" onClick={handleEditDescription}>
-                Edit description
-              </EditDescriptionButton>
+              {isDeckOwner && (
+                <EditDescriptionButton type="link" onClick={handleEditDescription}>
+                  Edit description
+                </EditDescriptionButton>
+              )}
             </DescriptionTitle>
             <Description>{description}</Description>
           </>

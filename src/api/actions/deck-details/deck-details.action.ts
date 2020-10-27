@@ -17,6 +17,7 @@ interface UpdateDeckMetadataPayload {
   deckId: string;
   description?: string;
   tags?: string[];
+  imageUrl?: string;
 }
 
 export const updateDeckMetadata = (
@@ -24,5 +25,17 @@ export const updateDeckMetadata = (
 ): ApiAction<{ error?: string }> => ({
   method: 'PATCH',
   endpoint: `${process.env.REACT_APP_API_ENDPOINT}/decks/update-metadata`,
+  body: payload,
+});
+
+interface DeleteDeckImagePayload {
+  deckId: string;
+}
+
+export const deleteDeckImage = (
+  payload: DeleteDeckImagePayload,
+): ApiAction<{ error?: string }> => ({
+  method: 'DELETE',
+  endpoint: `${process.env.REACT_APP_API_ENDPOINT}/decks/delete-image`,
   body: payload,
 });
