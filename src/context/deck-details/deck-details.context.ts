@@ -10,6 +10,7 @@ export const initialDeckDetailsState: DeckDetailsState = {
   isEditNameMode: false,
   shouldReloadData: false,
   isEditDescriptionMode: false,
+  isEditImageUrlMode: false,
 };
 
 export const DeckDetailsContext = React.createContext<DeckDetailsState | DeckDetailsStateApi>(

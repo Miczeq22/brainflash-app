@@ -1,17 +1,21 @@
-# 0.1.0 (2020-10-21)
+# 0.1.0 (2020-10-27)
 
 
 ### Features
 
 - Added locale feature ([a4d998c](https://github.com/Miczeq22/brainflash-app/commit/a4d998c20b3fad2348b53b636652adc5e95f3f4d))
 - Deck creator page ([95b483f](https://github.com/Miczeq22/brainflash-app/commit/95b483f9919351152c3b50ca793fc4bde1578edc))
+- Deck details context ([dd2f5ee](https://github.com/Miczeq22/brainflash-app/commit/dd2f5ee695a048237f4d4b6a3d918346ff41d9b8))
 - Deck details page ([c826fa2](https://github.com/Miczeq22/brainflash-app/commit/c826fa28b21aa21c42397604764f0aa090d00cdf))
 - Deck image uploader and deck creator context ([2be5a58](https://github.com/Miczeq22/brainflash-app/commit/2be5a58326442c6be1b145b5094f2b1dbec62da7))
 - Deck List Component ([e88d6cd](https://github.com/Miczeq22/brainflash-app/commit/e88d6cdcdbffb18d95777fba4d3c2f6f9a27909b))
 - Deck list item component ([86759ae](https://github.com/Miczeq22/brainflash-app/commit/86759aebacc500f250cae836ec33c84634596d89))
 - Deck List Provider ([5ee9ed5](https://github.com/Miczeq22/brainflash-app/commit/5ee9ed5b0b26db8e293466427fb2597f863df185))
 - Deck preview component ([20ece1d](https://github.com/Miczeq22/brainflash-app/commit/20ece1d9bf89516286c4a3c732d52b79f7f45c61))
-- Fetch tags in deck creator ([cc22538](https://github.com/Miczeq22/brainflash-app/commit/cc225389e8254bf1b7ce3162eb72f0e7ef679aed))
+- Edit deck description ([38eacb4](https://github.com/Miczeq22/brainflash-app/commit/38eacb460295f0a253e0ae424c18c0c5a709fe93))
+- Edit image ([ad0d677](https://github.com/Miczeq22/brainflash-app/commit/ad0d6774e72303502e224d55775283b4700a550b))
+- Edit name component ([1afae3e](https://github.com/Miczeq22/brainflash-app/commit/1afae3e388eb7c916c2bd7d5ad650cf022b23361))
+- Fetch tags in deck creator ([8bd08f3](https://github.com/Miczeq22/brainflash-app/commit/8bd08f3cb7822fb99a63e51d7e539eb1d615d81b))
 - Guest topbar ([0883e40](https://github.com/Miczeq22/brainflash-app/commit/0883e40b345c95b64ec167bfd69bf1e98e7b57d8))
 - Input component ([e6206b7](https://github.com/Miczeq22/brainflash-app/commit/e6206b7bbbe5aa4ab41ee087cb81605dcbc468e8))
 - Language Select component ([6496f5f](https://github.com/Miczeq22/brainflash-app/commit/6496f5fc0ec8e247458dcecd5685500dbe5ef1c1))
@@ -31,6 +35,7 @@
 - Auth fetch for apollo client ([a68dcd6](https://github.com/Miczeq22/brainflash-app/commit/a68dcd6c7902a4db34c6f406b6ac7de9411c3b49))
 - Connected local storage for auth provider ([f483437](https://github.com/Miczeq22/brainflash-app/commit/f4834372c131d2706ea2d1d99f6060b908b2d568))
 - Create deck process ([041ca75](https://github.com/Miczeq22/brainflash-app/commit/041ca75d4f37bc389785b013855b1695a5e7cca3))
+- Deck actions ([0d951fe](https://github.com/Miczeq22/brainflash-app/commit/0d951fe7a46cbe1c742952b66d65032d0f25b782))
 - Empty list improvement ([19f629c](https://github.com/Miczeq22/brainflash-app/commit/19f629c3ed7140f1b598eb8a4eaefc956ac10e4e))
 - Get user data from JWT ([07ce790](https://github.com/Miczeq22/brainflash-app/commit/07ce79002d82d7b1b13f097805cba7b18ad0104f))
 - Loader for decks ([934bda3](https://github.com/Miczeq22/brainflash-app/commit/934bda360a452d380c98ea551a530635b5665b37))

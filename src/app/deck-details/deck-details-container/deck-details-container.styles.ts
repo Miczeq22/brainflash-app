@@ -36,6 +36,13 @@ export const StyledImage = styled.div<StyledImageProps>`
   border-radius: 40px;
   ${({ imageUrl }) => imageUrl && `background: url('${imageUrl}') center/cover;`};
   background-color: rgba(95, 129, 244, 0.3);
+  position: relative;
+
+  & > button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
 `;
 
 export const ActionsContainer = styled.section`
