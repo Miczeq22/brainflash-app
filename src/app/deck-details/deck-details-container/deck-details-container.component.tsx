@@ -24,11 +24,16 @@ import {
   setDeckDescriptionEditMode,
   setDeckImageUrlEditMode,
   setDeckNameEditMode,
+  setDeckToReload,
 } from '@context/deck-details/deck-details.action-creators';
 import { EditDescription } from '../edit-description/edit-description.component';
 import { EditImage } from '../edit-image/edit-image.component';
 import { useMutation } from 'react-fetching-library';
-import { deleteDeckImage } from '@api/actions/deck-details/deck-details.action';
+import {
+  deleteDeckImage,
+  publishDeck,
+  unpublishDeck,
+} from '@api/actions/deck-details/deck-details.action';
 
 interface DeckDetailsContainerProps extends GetDeckdetailsData {}
 
@@ -48,13 +53,51 @@ export const DeckDetailsContainer = ({
   } = useDeckDetailsState();
 
   const { mutate: deleteImage } = useMutation(deleteDeckImage);
+  const { mutate: publish, loading: publishingDeck } = useMutation(publishDeck);
+  const { mutate: unpublish, loading: unpublishingDeck } = useMutation(unpublishDeck);
+
+  const handlePublish = async () => {
+    const { error, payload: response } = await publish({
+      deckId: id,
+    });
+
+    if (error) {
+      message.error(response?.error);
+    } else {
+      message.success('Deck published successfully.');
+      dispatch(setDeckToReload());
+    }
+  };
+
+  const handleUnpublish = async () => {
+    const { error, payload: response } = await unpublish({
+      deckId: id,
+    });
+
+    if (error) {
+      message.error(response?.error);
+    } else {
+      message.success('Deck unpublished successfully.');
+      dispatch(setDeckToReload());
+    }
+  };
 
   const menu = (
     <Menu>
-      <Menu.Item key="add-card">Add new card</Menu.Item>
-      <Menu.Item key="add-card">Show cards</Menu.Item>
+      <Menu.Item key="add-card" disabled>
+        Add new card
+      </Menu.Item>
+      <Menu.Item key="add-card" disabled>
+        Show cards
+      </Menu.Item>
       <Menu.Divider />
-      <Menu.Item key="publish/unpublish">{published ? 'Unpublish' : 'Publish'}</Menu.Item>
+      <Menu.Item
+        key="publish/unpublish"
+        disabled={publishingDeck || unpublishingDeck}
+        onClick={published ? handleUnpublish : handlePublish}
+      >
+        {published ? 'Unpublish' : 'Publish'}
+      </Menu.Item>
       <Menu.Divider />
       <Menu.Item key="delete">Delete</Menu.Item>
     </Menu>

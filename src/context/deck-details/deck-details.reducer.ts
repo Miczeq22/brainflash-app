@@ -16,6 +16,7 @@ export const SET_EDIT_NAME_MODE = 'deck-details/set-edit-name-mode';
 export const SET_EDIT_DESCRIPTION_MODE = 'deck-details/set-description-mode';
 export const SET_EDIT_IMAGE_URL_MODE = 'deck-details/set-image-url-mode';
 export const RELOAD_DATA = 'deck-details/reload-data';
+export const SET_DECK_TO_RELOAD = 'deck-details/set-deck-to-reload';
 
 export const deckDetailsReducer = (
   state: DeckDetailsState,
@@ -47,6 +48,12 @@ export const deckDetailsReducer = (
       return {
         ...state,
         shouldReloadData: false,
+      };
+
+    case SET_DECK_TO_RELOAD:
+      return {
+        ...state,
+        shouldReloadData: true,
       };
 
     default:
