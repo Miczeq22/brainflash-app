@@ -4,6 +4,7 @@ import {
   SET_EDIT_DESCRIPTION_MODE,
   SET_EDIT_NAME_MODE,
   SET_EDIT_IMAGE_URL_MODE,
+  SET_DECK_TO_RELOAD,
 } from './deck-details.reducer';
 
 export const setDeckNameEditMode = (isEditNameMode: boolean): DeckDetailsAction => ({
@@ -23,4 +24,8 @@ export const setDeckImageUrlEditMode = (isEditImageUrlMode: boolean): DeckDetail
 
 export const reloadDeckDetailsData = (): DeckDetailsAction => ({
   type: RELOAD_DATA,
+});
+
+export const setDeckToReload = (): DeckDetailsAction => ({
+  type: SET_DECK_TO_RELOAD,
 });

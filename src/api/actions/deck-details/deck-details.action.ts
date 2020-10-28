@@ -39,3 +39,23 @@ export const deleteDeckImage = (
   endpoint: `${process.env.REACT_APP_API_ENDPOINT}/decks/delete-image`,
   body: payload,
 });
+
+interface PublishDeckPayload {
+  deckId: string;
+}
+
+export const publishDeck = (payload: PublishDeckPayload): ApiAction<{ error?: string }> => ({
+  method: 'PATCH',
+  endpoint: `${process.env.REACT_APP_API_ENDPOINT}/decks/publish`,
+  body: payload,
+});
+
+interface UnpublishDeckPayload {
+  deckId: string;
+}
+
+export const unpublishDeck = (payload: UnpublishDeckPayload): ApiAction<{ error?: string }> => ({
+  method: 'PATCH',
+  endpoint: `${process.env.REACT_APP_API_ENDPOINT}/decks/unpublish`,
+  body: payload,
+});

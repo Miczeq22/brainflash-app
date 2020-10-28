@@ -16,14 +16,17 @@ export const AppRoutes = () => (
   <Switch>
     <GuestRoute path="/login" exact component={LoginPage} />
     <GuestRoute path="/register" exact component={RegisterPage} />
-    <AuthenticatedRoute path="/" exact component={HomePage} />
-    <AuthenticatedRoute path="/your-decks" exact component={YourDecks} />
-    <AuthenticatedRoute path="/enrolled-decks" exact component={EnrolledDecks} />
-    <DeckDetailsProvider>
-      <AuthenticatedRoute path="/deck-details/:id" exact component={DeckDetailsPage} />
-    </DeckDetailsProvider>
-    <DeckCreatorProvider>
-      <AuthenticatedRoute path="/deck-creator" exact component={DeckCreatorPage} />
-    </DeckCreatorProvider>
+    <AuthenticatedRoute path="/" component={HomePage}>
+      <AuthenticatedRoute path="/your-decks" exact component={YourDecks} />
+      <DeckDetailsProvider>
+        <AuthenticatedRoute path="/deck-details/:id" exact component={DeckDetailsPage} />
+      </DeckDetailsProvider>
+      <AuthenticatedRoute path="/enrolled-decks" exact component={EnrolledDecks} />
+      <DeckCreatorProvider>
+        <AuthenticatedRoute path="/deck-creator" exact component={DeckCreatorPage} />
+      </DeckCreatorProvider>
+
+      <AuthenticatedRoute path="*" component={HomePage} />
+    </AuthenticatedRoute>
   </Switch>
 );
