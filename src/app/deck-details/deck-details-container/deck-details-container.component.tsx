@@ -1,7 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import { GetDeckdetailsData } from '@graphql/queries/get-deck-details.query';
-import { Ratings } from '@ui/ratings/ratings.component';
 import { Button, Dropdown, Menu, message, Modal } from 'antd';
 import { CalendarTwoTone, CheckCircleTwoTone, MoreOutlined } from '@ant-design/icons';
 import {
@@ -13,9 +12,11 @@ import {
   DropdownContainer,
   EditDescriptionButton,
   EditNameButton,
+  RateContainer,
   StyledContainer,
   StyledHeader,
   StyledImage,
+  StyledRate,
   StyledTitle,
 } from './deck-details-container.styles';
 import { EditName } from '../edit-name/edit-name.component';
@@ -34,6 +35,7 @@ import {
   publishDeck,
   unpublishDeck,
 } from '@api/actions/deck-details/deck-details.action';
+import { useHistory } from 'react-router-dom';
 
 interface DeckDetailsContainerProps extends GetDeckdetailsData {}
 
@@ -51,6 +53,8 @@ export const DeckDetailsContainer = ({
     state: { isEditNameMode, isEditDescriptionMode },
     dispatch,
   } = useDeckDetailsState();
+
+  const history = useHistory();
 
   const { mutate: deleteImage } = useMutation(deleteDeckImage);
   const { mutate: publish, loading: publishingDeck } = useMutation(publishDeck);
@@ -82,13 +86,17 @@ export const DeckDetailsContainer = ({
     }
   };
 
+  const handleCreateCardAction = () => {
+    history.push(`/deck/${id}/add-card`);
+  };
+
   const menu = (
     <Menu>
-      <Menu.Item key="add-card" disabled>
+      <Menu.Item key="add-card" onClick={handleCreateCardAction}>
         Add new card
       </Menu.Item>
-      <Menu.Item key="add-card" disabled>
-        Show cards
+      <Menu.Item key="show-cards" disabled>
+        Show deck cards
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item
@@ -168,7 +176,11 @@ export const DeckDetailsContainer = ({
               )}
             </StyledTitle>
           )}
-          <Ratings ratings={rating} numberOfRatings={numberOfRatings} />
+          <RateContainer>
+            <StyledRate defaultValue={rating} disabled allowHalf />
+            <span className="rating">{rating.toFixed(2)}</span>
+            <span>{numberOfRatings} ratings</span>
+          </RateContainer>
           <ButtonsContainer>
             <Button type="primary" icon={<CheckCircleTwoTone />}>
               Enroll Now!

@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, Rate } from 'antd';
 import styled from 'styled-components';
 
 interface StyledImageProps {
@@ -106,4 +106,27 @@ export const DescriptionTitle = styled.h3`
 export const Description = styled.p`
   font-size: 19px;
   line-height: 30px;
+`;
+
+export const RateContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  & > .rating {
+    margin: 0 10px;
+    font-weight: 700;
+    color: ${({ theme }) => theme.color.fontPrimary};
+  }
+
+  & > span {
+    font-size: 20px;
+    color: ${({ theme }) => theme.color.fontGray};
+  }
+`;
+
+export const StyledRate = styled(Rate)`
+  & svg {
+    width: 35px;
+    height: 35px;
+  }
 `;
