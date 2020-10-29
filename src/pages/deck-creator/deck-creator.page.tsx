@@ -18,7 +18,7 @@ import {
   setDeckReadyToSubmit,
 } from '@context/deck-creator/deck-creator.action-creators';
 import { TitleAndDescriptionForm } from '@app/deck-creator/title-and-description-form/title-and-description-form.component';
-import { DeckTags } from '@app/deck-tags/deck-tags.component';
+import { DeckTags } from '@app/deck-creator/deck-tags/deck-tags.component';
 import { useMutation } from 'react-fetching-library';
 import { createDeckAction } from '@api/actions/deck-creator/deck-creator.actions';
 import { useHistory } from 'react-router-dom';

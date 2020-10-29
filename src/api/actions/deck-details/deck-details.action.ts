@@ -59,3 +59,14 @@ export const unpublishDeck = (payload: UnpublishDeckPayload): ApiAction<{ error?
   endpoint: `${process.env.REACT_APP_API_ENDPOINT}/decks/unpublish`,
   body: payload,
 });
+
+interface AddDeckRatingPayload {
+  deckId: string;
+  rating: number;
+}
+
+export const addDeckRating = (payload: AddDeckRatingPayload): ApiAction<{ error?: string }> => ({
+  method: 'PATCH',
+  endpoint: `${process.env.REACT_APP_API_ENDPOINT}/decks/add-rating`,
+  body: payload,
+});
