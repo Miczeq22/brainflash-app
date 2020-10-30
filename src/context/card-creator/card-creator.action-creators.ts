@@ -5,7 +5,7 @@ export const setCardCreatorStep = (step: number): CardCreatorAction => ({
   step,
 });
 
-export const steCardCreatorQuestion = (question: string): CardCreatorAction => ({
+export const setCardCreatorQuestion = (question: string): CardCreatorAction => ({
   type: SET_QUESTION,
   question,
 });
