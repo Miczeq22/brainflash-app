@@ -1,3 +1,5 @@
+import { initialCardCreatorState } from './card-creator.context';
+
 export interface CardCreatorState {
   step: number;
   question: string;
@@ -14,6 +16,7 @@ export interface CardCreatorAction {
 export const SET_STEP = 'deck-creator/set-step';
 export const SET_QUESTION = 'deck-creator/set-question';
 export const SET_ANSWER = 'deck-creator/set-answer';
+export const RESET = 'deck-creator/reset';
 
 export const cardCreatorReducer = (
   state: CardCreatorState,
@@ -37,6 +40,9 @@ export const cardCreatorReducer = (
         ...state,
         answer: action.answer as string,
       };
+
+    case RESET:
+      return initialCardCreatorState;
 
     default:
       return state;

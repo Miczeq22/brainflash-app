@@ -1,4 +1,10 @@
-import { CardCreatorAction, SET_ANSWER, SET_QUESTION, SET_STEP } from './card-creator.reducer';
+import {
+  CardCreatorAction,
+  RESET,
+  SET_ANSWER,
+  SET_QUESTION,
+  SET_STEP,
+} from './card-creator.reducer';
 
 export const setCardCreatorStep = (step: number): CardCreatorAction => ({
   type: SET_STEP,
@@ -13,4 +19,8 @@ export const setCardCreatorQuestion = (question: string): CardCreatorAction => (
 export const setCardCreatorAnswer = (answer: string): CardCreatorAction => ({
   type: SET_ANSWER,
   answer,
+});
+
+export const resetCardCreator = (): CardCreatorAction => ({
+  type: RESET,
 });
