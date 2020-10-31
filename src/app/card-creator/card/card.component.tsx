@@ -5,6 +5,7 @@ import { useSpring } from 'react-spring';
 import { GET_DECK_FOR_CARD } from '@graphql/queries/get-deck-for-card.query';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import {
+  resetCardCreator,
   setCardCreatorAnswer,
   setCardCreatorQuestion,
   setCardCreatorStep,
@@ -42,7 +43,7 @@ export const Card = ({ deckId }: CardProps) => {
 
   const questionRef = React.createRef<HTMLDivElement>();
 
-  const { data, loading } = useQuery(GET_DECK_FOR_CARD, {
+  const { data, loading, refetch } = useQuery(GET_DECK_FOR_CARD, {
     variables: {
       deckID: deckId,
     },
@@ -98,6 +99,8 @@ export const Card = ({ deckId }: CardProps) => {
       message.error(response?.error);
     } else {
       message.success('Card added successfully.');
+      dispatch(resetCardCreator());
+      await refetch();
     }
   };
 
@@ -116,12 +119,14 @@ export const Card = ({ deckId }: CardProps) => {
               <>
                 <FrontContent>
                   <DeckTitle>{data.getDeck.name}</DeckTitle>
-                  <QuestionText
-                    contentEditable
-                    ref={questionRef}
-                    onKeyPress={handleQuestionKeyPress}
-                    onInput={handleQuestionChange}
-                  />
+                  {step === 0 && (
+                    <QuestionText
+                      contentEditable
+                      ref={questionRef}
+                      onKeyPress={handleQuestionKeyPress}
+                      onInput={handleQuestionChange}
+                    />
+                  )}
                 </FrontContent>
                 <QuestionNumber>{data.getDeck.cardCount + 1}</QuestionNumber>
               </>
@@ -130,7 +135,7 @@ export const Card = ({ deckId }: CardProps) => {
           <CardBack
             style={{ opacity, transform: transform.interpolate((t) => `${t} rotateY(180deg)`) }}
           >
-            <SimpleMDE onChange={handleAnswerChange} />
+            {step === 1 && <SimpleMDE onChange={handleAnswerChange} />}
           </CardBack>
           <NextButton
             icon={<RightOutlined />}

@@ -1,41 +1,12 @@
 import { uploadFileAction } from '@api/actions/deck-creator/deck-creator.actions';
-import Dragger from 'antd/lib/upload/Dragger';
 import { RcCustomRequestOptions } from 'antd/lib/upload/interface';
 import React from 'react';
 import { useMutation } from 'react-fetching-library';
-import styled from 'styled-components';
 import UploadIcon from '@assets/upload.svg';
 import { useDeckDetailsState } from '@hooks/use-deck-details-state/use-deck-details-state.hook';
 import { updateDeckMetadata } from '@api/actions/deck-details/deck-details.action';
 import { setDeckImageUrlEditMode } from '@context/deck-details/deck-details.action-creators';
-
-const ImageContainer = styled.div`
-  width: 50%;
-  height: 400px;
-
-  & .ant-upload.ant-upload-drag {
-    border-radius: 40px;
-  }
-`;
-
-const StyledDragger = styled(Dragger)`
-  overflow: hidden;
-  & .ant-upload-drag-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    & > img {
-      width: 70%;
-    }
-
-    & > p {
-      font-weight: 500;
-      font-size: 16px;
-    }
-  }
-`;
+import { ImageContainer, StyledDragger } from './edit-image.styles';
 
 interface EditImageProps {
   deckId: string;
