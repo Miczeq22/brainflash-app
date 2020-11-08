@@ -1,10 +1,6 @@
 pipeline {
 
-  agent {
-    docker {
-     image 'node:12.13.1-alpine' 
-    }
-  }
+  agent any
   
   stages {
   
@@ -12,8 +8,6 @@ pipeline {
     
       steps {
         echo 'Building the application...'
-        sh 'npm i'
-        sh 'npm run build'
       }
     }
     
@@ -21,7 +15,6 @@ pipeline {
     
       steps {
         echo 'Testing the application...'
-        sh 'npm run test:ci'
       }
     }
   }
